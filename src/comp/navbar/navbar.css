@@ -1,0 +1,121 @@
+.content {
+  background: #7265FF;
+  background: linear-gradient(to right, #948de9 0%, #f18d0a 41%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.navbar{
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  backdrop-filter: blur(15px);
+}
+.name {
+  background-image: -webkit-linear-gradient(125deg, #f2291b, #f7db25, #84f527);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: hue 15s infinite linear;
+}
+
+@-webkit-keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+
+  to {
+    -webkit-filter: hue-rotate(-360deg);
+  }
+}
+
+.navmobile {
+  background-repeat: no-repeat, repeat;
+  background-size: cover;
+  background-image: url("../../assets/img/image.webp");
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Add the following CSS to navbar.css to handle dropdown animation */
+
+@keyframes dropdown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-dropdown {
+  animation: dropdown 0.3s ease-in-out;
+}
+
+/* navbar.css */
+.dropdown-menu {
+  position: absolute;
+  z-index: 1000;
+  /* Dropdown'un diğer elemanların üstünde olmasını sağla */
+}
+
+
+/* styles.css veya component CSS */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.3s ease-in-out;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.3s ease-in-out;
+}
