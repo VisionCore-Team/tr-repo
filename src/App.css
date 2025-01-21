@@ -1,0 +1,78 @@
+#root {
+  
+  margin: 0 auto;
+  
+}
+
+.dock{
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.about{
+  height: 95vh;
+  background-repeat: no-repeat, repeat;
+  background-size: cover;
+  background-image: url("https://source.unsplash.com/1L71sPT5XKc");
+}
+.name{
+  background-image: -webkit-linear-gradient(125deg, #ff1100, #f7db25, #84f527);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: hue 15s infinite linear;
+  }@-webkit-keyframes hue {
+   from {
+     -webkit-filter: hue-rotate(0deg);
+   }
+   to {
+     -webkit-filter: hue-rotate(-360deg);
+   }
+  }
+  @keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 200%; }
+  }
+  
+  
+
+  .gradient-text {
+    font-size: 2rem; /* Yazı boyutunu dilediğiniz gibi ayarlayın */
+    font-weight: bold;
+    
+    background-image: -webkit-linear-gradient(45deg, #f7f7f7, #290369, #84f527,#290369);
+    background-size: 200% auto; /* Arka planın genişliğini daha büyük yaparak kayan etki oluşturulur */
+    -webkit-background-clip: text; /* Arka planı sadece metnin içinde göstermek için kullanılır */
+    -webkit-text-fill-color: transparent; /* Yazının rengini şeffaf yapar, böylece sadece arka plan görünür */
+    animation: gradientAnimation 10s linear infinite; /* Animasyonu sürekli çalıştırır */
+  }
+  
+  @keyframes gradientMove {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position:  50% 100%;
+    }
+  }
+  
+
+
+  .gradient-text2 {
+    font-size: 2rem; /* Yazı boyutunu dilediğiniz gibi ayarlayın */
+    
+    background-image: linear-gradient(45deg, #caeff9, #a6a6a9, #f6beec);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientAnimation 4s ease infinite;
+  }
+  .gradient-text3 {
+    font-size: 2rem; /* Yazı boyutunu dilediğiniz gibi ayarlayın */
+    
+    background-image: linear-gradient(45deg, #f4f4f4, #515166, #ffffff);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientAnimation 15s ease infinite;
+  }

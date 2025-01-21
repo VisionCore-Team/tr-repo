@@ -1,0 +1,206 @@
+.chart-container-wrapper {
+    display: flex;
+    flex-direction: row; /* Masaüstünde metin ve grafikleri yan yana yerleştirmek için */
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Metin kısmı */
+.additional-text {
+    width: 35%; /* Metnin toplam genişlikte kapladığı oran */
+    color: white; /* Yazının rengini beyaz yaptık */
+    font-size: 22px; /* Yazı boyutunu 22px yaptık */
+    font-family: 'EuclidCircularB', sans-serif; /* Chart ile aynı fontu kullandık */
+}
+
+/* Grafik kısmı */
+.chart {
+    display: flex;
+    flex-wrap: nowrap; /* Mobilde bile yan yana tutmak için */
+    gap: 2rem;
+    width: 60%; /* Grafiğin toplam genişlikte kapladığı oran */
+    max-width: 420px;
+    margin-left: auto; /* Grafiği sağ tarafa hizala */
+}
+
+/* Küçük ekranlar (telefonlar) için */
+@media (max-width: 768px) {
+    .chart-container-wrapper {
+        flex-direction: row; /* Mobilde de metin ve grafikleri yan yana tutar */
+        flex-wrap: wrap; /* İçeriklerin taşmasını engeller */
+        gap: 1rem;
+        justify-content: center;
+    }
+
+    .additional-text {
+        width: 100%; /* Küçük ekranlarda metin kısmının genişliğini artırdık */
+        font-size: 18px; /* Daha küçük ekranlar için yazı boyutunu küçülttük */
+        text-align: left;
+    }
+
+    .chart {
+        width: 45%; /* Küçük ekranlarda grafiğin genişliğini artırdık */
+        max-width: none;
+        margin-left: 0; /* Mobilde hizalamayı kaldırdık */
+        justify-content: center;
+    }
+
+    .chart-container {
+        height: 250px; /* Küçük ekranlarda grafik yüksekliği azaltıldı */
+    }
+
+    .chart-top-text {
+        width: 80px; /* Yuvarlak metin kutusunun boyutunu küçültüyoruz */
+        height: 80px;
+        font-size: 12px;
+    }
+
+    .chart-bottom-text {
+        font-size: 12px; /* Alt metin boyutunu küçültmek */
+    }
+}
+
+/* Ekstra küçük ekranlar (telefonlar) için */
+@media (max-width: 480px) {
+    .chart-container-wrapper {
+        flex-direction: row; /* Küçük ekranlarda da yan yana duracak */
+        padding: 1rem; /* Telefonlar için daha az padding */
+    }
+
+    .chart-container {
+        height: 200px; /* Daha küçük grafik yüksekliği */
+    }
+
+    .chart-top-text {
+        width: 60px; /* Yuvarlak kutunun boyutunu daha da küçültüyoruz */
+        height: 60px;
+    }
+
+    .chart-bottom-text {
+        font-size: 10px; /* Daha küçük ekranlar için alt metin boyutunu azaltma */
+    }
+}
+
+
+.chart-top-value {
+    font-size: 15px; /* Değeri temsil eden sayı için */
+    color: white;
+}
+
+.chart-top-unit {
+    font-size: 10px; /* Birim (örneğin Billion) için */
+    color: rgb(255, 255, 255);
+}
+
+
+.chart-container {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    height: 450px;
+}
+
+.chart-graph{
+    background: linear-gradient(164.5deg, #df4c02 18.94%, #6306b0 83.28%);
+    width: 100%;
+    height: 0;
+    animation: 2s animate-1 forwards;
+}
+
+.chart-bar:nth-child(2) .chart-graph{
+    background: linear-gradient(164.5deg, #c90818 18.94%, #3a0664 83.28%);
+    animation: 2s animate-2 forwards;
+}
+
+@keyframes animate-1{
+    0%{height: 0;}
+    100%{height: 59%}
+}
+
+@keyframes animate-2{
+    0%{height: 0;}
+    100%{height: 100%}
+}
+@font-face {
+    font-family: 'EuclidCircularB';
+    src: url('/fonts/Euclid Circular B Regular.ttf') format('truetype');
+    font-weight: 800; /* Normal ağırlık (Regular) */
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'EuclidCircularBB';
+    src: url('/fonts/Euclid Circular B Bold.ttf') format('truetype');
+    font-weight: 800; /* Bold ağırlık */
+    font-style: normal;
+}
+
+.chart-top-value {
+    font-size: 32px; /* Değeri temsil eden sayı için */
+    color: white; /* Renk de eklemek isterseniz */
+}
+
+.chart-top-unit {
+    font-size: 20px; /* Birim (örneğin Billion) için */
+    font-family: 'EuclidCircularB', sans-serif; /* Fontu kullanıyoruz */
+    color: white; /* Renk de eklemek isterseniz */
+}
+
+
+.chart-top-text {
+    width: 150px;
+    color: rgb(255, 255, 255);
+    height: 150px;
+    position: absolute;
+    background-color: #0D1225;
+    border-radius: 50%;
+    display: flex;
+    font-family: 'EuclidCircularBB', sans-serif; /* Fontu kullanıyoruz */
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 2px 10px 30px 4px rgb(0 0 0 / .1);
+    overflow: hidden;
+    font-size: larger;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.chart-bottom-text {
+    bottom: 20%;
+    z-index: 1;
+    position: relative;
+    color: #fff;
+    font-family: 'EuclidCircularB', sans-serif; /* Fontu kullanıyoruz */
+
+    padding: 0 10px;
+    width: 190px;
+    font-size: larger;
+    text-align: center;
+    
+}
+/* slider.css */
+
+.slide-enter {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  .slide-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 500ms, transform 500ms;
+  }
+  .slide-exit {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .slide-exit-active {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 500ms, transform 500ms;
+  }
+  
