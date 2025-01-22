@@ -1,18 +1,43 @@
-
-import "./App.css";
-import Home from "./comp/home/home";
-import MacWinBar from "./comp/window/macWinbar";
-import Navbar from "./comp/navbar/navbar";
-import bg from "../public/bg/cardbg.jpg";
-import contactBackground from "../public/bg/islemci.jpeg";
-import { FadeUp } from "./comp/fade/FadeUp";
-import { SlideIn } from "./comp/fade/SlideIn";
+import { useTranslation } from "react-i18next";
+import "../../App.css";
+import Home from "../home/home";
+import MacWinBar from "../window/macWinbar";
+import Navbar from "../navbar/navbar";
+import bg from "../../../public/bg/cardbg.jpg";
+import contactBackground from "../../../public/bg/islemci.jpeg";
+import { FadeUp } from "../fade/FadeUp";
+import { SlideIn } from "../fade/SlideIn";
 import { motion } from "framer-motion";
-import Chart from "./comp/chartbar/chartbar";
-import Footer from "./comp/footer/footer";
-import VideoSlider from "./comp/reactVideoSlider/VideoSlider"; // .tsx uzantısını belirtmeye gerek yok
+import Chart from "../chartbar/chartbar";
+import Footer from "../footer/footer";
+import VideoSlider from "../reactVideoSlider/VideoSlider"; // .tsx uzantısını belirtmeye gerek yok
+import './layout_translate';
+
 
 const Layout = () => {
+  const { t } = useTranslation();
+  const data = [
+    {
+      title: t('layout_element_title_1'),
+      source: "//images.ctfassets.net/zi2yef4nw297/55IgiMbZTUnzClTCNDDf8i/0d1dd19b845ae5bb3f553a9e3097dd1b/analytics.svg",
+      text:  t('layout_element_text_1')
+    },
+    {
+      title: t('layout_element_title_2'),
+      source: "//images.ctfassets.net/zi2yef4nw297/5yoHVAi7MbTb2l06IbU2yg/5a8046ae87cdc124f277267d225938dc/process.svg",
+      text:  t('layout_element_text_2')
+    },
+    {
+      title: t('layout_element_title_3'),
+      source: "//images.ctfassets.net/zi2yef4nw297/5kzRnOp98IPwkc8Kl6MlYk/b32e0787996f7cb7e7ef05320a5fde34/money.svg",
+      text:  t('layout_element_text_3')
+    },
+    {
+      title: t('layout_element_title_4'),
+      source: "//images.ctfassets.net/zi2yef4nw297/1YgBcdR3qmWhI0eriJNK5H/37f1b3a4a597fa2e8c03c861f8ba3710/safety.svg",
+      text:  t('layout_element_text_4')
+    },
+  ]
   return (
     <>
       <Navbar />
@@ -33,7 +58,7 @@ const Layout = () => {
                 className="mx-auto max-w-5xl px-6 text-center text-2xl lg:text-6xl"
                 style={{ maxWidth: "80rem", color: "white" }}
               >
-                Always Have Eyes on Your Operations
+                {t('layout_heading')}
               </h2>
             </div>
           </FadeUp>
@@ -41,17 +66,12 @@ const Layout = () => {
             className="mx-auto max-w-6xl px-6 text-center text-base lg:text-xl"
             style={{ color: "#727374" }}
           >
-            At VisionCore, we deeply understand the challenges faced by industries and develop the most suitable solutions collaboratively with our clients through our Enterprise AI solutions. With our proven track record, we position our partners as leaders in their industry and elevate industry standards with innovative technologies.
+            {t('layout_text')}
           </p>
 
           <SlideIn delay={0.2} duration={0.8}>
             <div className="mx-auto flex max-w-7xl flex-wrap flex-row justify-center gap-2 lg:gap-4">
-              {[
-                "Gain Visual Insights",
-                "Improve Processes",
-                "Drive More Revenue",
-                "Enhance Safety",
-              ].map((title, index) => (
+              {data.map((el, index) => (
                 <div
                   key={index}
                   className="relative flex items-center justify-center p-2 w-full sm:w-1/2 lg:w-1/5"
@@ -66,29 +86,12 @@ const Layout = () => {
                     >
                       <div className="flex items-center">
                         <img
-                          src={
-                            index === 0
-                              ? "//images.ctfassets.net/zi2yef4nw297/55IgiMbZTUnzClTCNDDf8i/0d1dd19b845ae5bb3f553a9e3097dd1b/analytics.svg"
-                              : index === 1
-                              ? "//images.ctfassets.net/zi2yef4nw297/5yoHVAi7MbTb2l06IbU2yg/5a8046ae87cdc124f277267d225938dc/process.svg"
-                              : index === 2
-                              ? "//images.ctfassets.net/zi2yef4nw297/5kzRnOp98IPwkc8Kl6MlYk/b32e0787996f7cb7e7ef05320a5fde34/money.svg"
-                              : "//images.ctfassets.net/zi2yef4nw297/1YgBcdR3qmWhI0eriJNK5H/37f1b3a4a597fa2e8c03c861f8ba3710/safety.svg"
-                          }
-                          alt={title}
+                          src={ el.source }
+                          alt={el.title}
                         />
                       </div>
-                      <h4 style={{ wordBreak: "break-word" }}>{title}</h4>
-                      <p className="text-base leading-6 opacity-80">
-                        {index === 0 &&
-                          "Capture more accurate, real-time visual data to better address productivity issues."}
-                        {index === 1 &&
-                          "Minimize delays and streamline operations by addressing issues as they happen."}
-                        {index === 2 &&
-                          "Identify choke points, security risks, delays, and staffing issues to cut costs."}
-                        {index === 3 &&
-                          "Assess safety compliance in real-time with immediate alerts to mitigate risks."}
-                      </p>
+                      <h4 style={{ wordBreak: "break-word" }}>{el.title}</h4>
+                      <p className="text-base leading-6 opacity-80">{el.text}</p>
                     </div>
                   </div>
                 </div>
@@ -120,9 +123,9 @@ const Layout = () => {
             href="tel:+905436771863"
             className="text-white hover:text-gray-400 duration-500 "
           >
-            Can't See Your Industry?
+            {t('banner_text1')}
             <br />
-            Speak with an AI Expert
+            {t('banner_text2')}
           </a>
         </h2>
       </div>
@@ -135,7 +138,7 @@ const Layout = () => {
       >
         <br />
         <span className=" text-5xl font-light mt-4 leading-none">
-          Meet The Team
+          {t('meetTeam')}
         </span>
         <br /> <br />
       </motion.div>

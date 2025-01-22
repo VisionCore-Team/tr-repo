@@ -1,6 +1,4 @@
-
-
-  // src/data/videosData.ts
+// src/data/videosData.ts
 
 export interface Video {
   id: number;
@@ -12,19 +10,19 @@ export interface Video {
 const videosData: Video[] = [
   {
     id: 1,
-    title: "Indoor Car Tracking and Plate Recognition",
+    title: "video_title1",
     url: "https://www.youtube.com/watch?v=S592KoowrR0",
     thumbnail: "https://img.youtube.com/vi/S592KoowrR0/hqdefault.jpg",
   },
   {
     id: 2,
-    title: "White Blood Cell Detection",
+    title: "video_title2",
     url: "https://www.youtube.com/watch?v=SEumbIehmI4",
       thumbnail: "https://img.youtube.com/vi/SEumbIehmI4/hqdefault.jpg",
   },
   {
     id: 3,
-    title: "Solar Panel Defect Detection Systems",
+    title: "video_title3",
     url: "https://www.youtube.com/watch?v=bYB9CnX8lTo",
       thumbnail: "https://img.youtube.com/vi/bYB9CnX8lTo/hqdefault.jpg",
   },
