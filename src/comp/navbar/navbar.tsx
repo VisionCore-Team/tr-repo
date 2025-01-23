@@ -311,15 +311,15 @@ const Navbar: React.FC = () => {
                   <div className="mb-4">
                     <div className="flex items-center gap-2 text-lg text-gray-700">
                       <TiLocation size={30} />
-                      <p>5055 Keller Springs Rd, Suite 250, Addison, TX 75001</p>
+                      <p>Deventer, NL</p>
                     </div>
                     <div className="flex items-center gap-2 text-lg text-gray-700 mt-2">
                       <MdContactPhone size={30} />
-                      <p>Call: +1 855 585 7344</p>
+                      <p>Call: +31 6 14946511</p>
                     </div>
                     <div className="flex items-center gap-2 text-lg text-gray-700 mt-2">
                       <IoMdMail size={30} />
-                      <p>info@imagevision.ai</p>
+                      <p>support@visioncore.com.tr</p>
                     </div>
                   </div>
                 </div>
