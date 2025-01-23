@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import EthicalValues from './comp/ethicalValues/ethicalValues.tsx';
 import Blog from './comp/blog/blog.tsx'
 import Core from './comp/core/Core.tsx';
-import Layout from './layout.tsx';
+import Layout from './comp/layout/layout.tsx';
 import Manufacturing from './comp/solutions/Manufacturing.tsx';
 import Health from './comp/solutions/Health.tsx';
 import Agriculture from './comp/solutions/Agriculture.tsx';

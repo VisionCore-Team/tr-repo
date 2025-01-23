@@ -3,14 +3,23 @@
 import React, { useRef, useState, useEffect } from "react";
 import Slider from "react-slick";
 import ReactPlayer from "react-player";
+import { useTranslation } from "react-i18next";
 import videosData, { Video } from "./videosData"; // Doğru yolu kullandığınızdan emin olun
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import './videoSlider_translate';
 import { motion, AnimatePresence } from "framer-motion";
 
 const VideoSlider: React.FC = () => {
+
+  const { t } = useTranslation();
   const sliderRef = useRef<Slider>(null);
   const [activeVideo, setActiveVideo] = useState<Video | null>(null);
+
+  const translatedVideos = videosData.map((video) => ({
+    ...video,
+    title: t(video.title),
+  }));
 
   const settings = {
     dots: true,
@@ -74,10 +83,9 @@ const VideoSlider: React.FC = () => {
 
   return (
     <div className="w-11/12 mx-auto bg-gray-900 py-16">
-      <h2 className="text-center text-3xl font-bold mb-8 text-white">
-Discover Our Services...    </h2>
+      <h2 className="text-center text-3xl font-bold mb-8 text-white">{t('title')}</h2>
       <Slider {...settings} ref={sliderRef}>
-        {videosData.map((video) => (
+        {translatedVideos.map((video) => (
           <div key={video.id} className="p-4">
             <div
               className="relative cursor-pointer"

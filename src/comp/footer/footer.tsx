@@ -1,7 +1,11 @@
+import { useTranslation } from "react-i18next";
 import { FaLinkedin } from "react-icons/fa6";
-import logobüyük from "../../../public/img/V.svg"
+import logobüyük from "../../../public/img/V.svg";
+import './footer_translate';
 
 function Footer(){
+    const { t } = useTranslation();
+
 return(
     
 <footer className="bg-white dark:bg-gray-900">
@@ -14,27 +18,27 @@ return(
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
               <div>
-                  <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Solutions</h2>
+                  <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">{t('solutions')}</h2>
                   <ul className="text-gray-500 dark:text-gray-400 font-medium">
                       <li className="mb-4">
-                          <a href="/solutions/byindustry/health" className="hover:underline">Health</a>
+                          <a href="/solutions/byindustry/health" className="hover:underline">{t('health')}</a>
                       </li>
                       <li className="mb-4">
-                          <a href="/solutions/byindustry/manufacturin" className="hover:underline">Manufacturing</a>
+                          <a href="/solutions/byindustry/manufacturin" className="hover:underline">{t('manufacturing')}</a>
                       </li>
                       <li className="mb-4">
-                          <a href="/solutions/byindustry/agriculture" className="hover:underline">Agriculture</a>
+                          <a href="/solutions/byindustry/agriculture" className="hover:underline">{t('agriculture')}</a>
                       </li>
                       <li  className="mb-4">
                           <a href="/solutions/bysolution/marketshelf/" className="hover:underline">Market Shelf Detection</a>
                       </li>
                       <li  className="mb-4">
-                          <a href="/solutions/bysolution/licenseplate/" className="hover:underline">License Plate Detection&Tracking</a>
+                          <a href="/solutions/bysolution/licenseplate/" className="hover:underline">{t('car')}</a>
                       </li>
                   </ul>
               </div>
               <div>
-                  <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us</h2>
+                  <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">{t('follow')}</h2>
                   <ul className="text-gray-500 dark:text-gray-400 font-medium">
                       <li className="mb-4">
                           <a href="#" className="hover:underline ">Github</a>
@@ -46,7 +50,7 @@ return(
             
               </div>
               <div>
-                  <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Contact Us</h2>
+                  <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">{t('contact')}</h2>
                   <ul className="text-gray-500 dark:text-gray-400 font-medium">
                       <li className="mb-4">
                           <a href="#" className="hover:underline ">support@visioncore.com.tr</a>
@@ -67,10 +71,10 @@ return(
                   <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Legal</h2>
                   <ul className="text-gray-500 dark:text-gray-400 font-medium">
                       <li className="mb-4">
-                          <a href="#" className="hover:underline">Privacy Policy</a>
+                          <a href="#" className="hover:underline">{t('policy')}</a>
                       </li>
                       <li>
-                          <a href="#" className="hover:underline">Terms &amp; Conditions</a>
+                          <a href="#" className="hover:underline">{t('terms')}</a>
                       </li>
                   </ul>
               </div>

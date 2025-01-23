@@ -1,6 +1,8 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import './chartbar.css';
 import '../../App.css';
+import './chartbar_translate';
 
 type ChartBarProps = {
   topText: {
@@ -16,6 +18,12 @@ type ChartBarProps = {
 
 const Chart = () => {
   
+  const { t } = useTranslation();
+
+  const chartBarData = [ 
+    { value: '100', unit: t('billion'), text: t('billion_text'), barClass: 'chart-bar-1' },
+    { value: '13', unit: t('trillion'), text: t('trillion_text'), barClass: 'chart-bar-2' }
+  ]
 
   const ChartBar = React.forwardRef<HTMLDivElement, ChartBarProps>(
     ({ topText, bottomText, barClass }, ref) => {
@@ -46,28 +54,25 @@ const Chart = () => {
       <div className="cicek-text ">
         <div className="">
           <div className="et_pb_text_inner ">
-            <h2 className='cicek-text'>
-            The oil of the new world: <br/> <span className="moving-gradient-text text-transparent bg-clip-text ">AI-powered computer vision</span>
+            <h2 className='cicek-text'>{`${t('chartbar_title1')}:`}
+              <br/> 
+              <span className="moving-gradient-text text-transparent bg-clip-text ">{t('chartbar_title2')}</span>
             </h2>
             <p className='mt-8 additional-text' style={{ fontSize: 14 }}>
-              Computer Vision (CV) is an artificial intelligence technology that detects, processes, and instantly analyzes thousands of visual objects, images, or actions in video images but does so in nanoseconds, versus the time it takes a human being.
+              {t('chartbar_text1')}
             </p>
           </div>
         </div>
         <div className="">
           <div className="et_pb_text_inner mt-4 " style={{ fontSize: 17 }}>
-            <p>The technology can take immediate action when images, pictures, or patterns of images are detected. Think of it as artificial eyes and brains, only more highly evolved.</p>
+            <p>{t('chartbar_text2')}</p>
           </div>
         </div>
       </div>
       <div className="chart mt-8">
-        {[ 
-          { value: '100', unit: 'Billion', text: 'Estimated USD Value in 2021', barClass: 'chart-bar-1' },
-          { value: '13', unit: 'Trillion', text: 'Estimated AI USD Value in 2030', barClass: 'chart-bar-2' }
-        ].map((barData, index) => (
+        {chartBarData.map((barData, index) => (
           <ChartBar
             key={index}
-           
             topText={{ value: barData.value, unit: barData.unit }}
             bottomText={barData.text}
             barClass={barData.barClass}
