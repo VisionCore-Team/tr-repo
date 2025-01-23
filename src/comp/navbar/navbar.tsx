@@ -1,35 +1,50 @@
 import "./navbar.css";
 import { Link } from "react-scroll";
+import { useFormik } from 'formik';
+import axios from "axios";
+import * as Yup from 'yup';
+import ReCAPTCHA from 'react-google-recaptcha';
 import logo from "../../../public/img/Ç.svg";
 import { SlideIn } from "../fade/SlideIn";
 import { useState, useEffect, useRef } from "react";
+import { TiLocation } from "react-icons/ti";
+import { MdContactPhone } from "react-icons/md";
+import { IoMdMail } from "react-icons/io";
+import { IoCloseSharp } from "react-icons/io5";
 import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
 import './navbar_translate';
 
+interface SolutionItem {
+  id: number;
+  text: string;
+  to: string;
+}
+
+interface SubgroupItem {
+  bySolutions?: SolutionItem[];
+  byIndustry?: SolutionItem[];
+  id?: number;
+  text?: string;
+  to?: string;
+  href?: string;
+}
+
+interface GroupItem {
+  id: number;
+  navbarName: string;
+  subgroup: SubgroupItem[];
+}
+
+interface FormValues {
+  fullName: string;
+  email: string;
+  companyName: string;
+  phone: string;
+  message: string;
+}
 
 const Navbar: React.FC = () => {
-
-  interface SolutionItem {
-    id: number;
-    text: string;
-    to: string;
-  }
-
-  interface SubgroupItem {
-    bySolutions?: SolutionItem[];
-    byIndustry?: SolutionItem[];
-    id?: number;
-    text?: string;
-    to?: string;
-    href?: string;
-  }
-
-  interface GroupItem {
-    id: number;
-    navbarName: string;
-    subgroup: SubgroupItem[];
-  }
 
   const { t } = useTranslation();
 
@@ -85,6 +100,64 @@ const Navbar: React.FC = () => {
   //State for tracking interface language
 
   const [isTR, setIsTR] = useState<boolean>(localStorage.getItem('lang') === 'tr');
+
+  const [showContactModal, setShowContactModal] = useState<boolean>(false);
+  const [recaptchaValue, setRecaptchaValue] = useState<string | null>(null);
+
+
+  const handleSubmit = async () => {
+    if (!recaptchaValue) {
+      alert("Please, verify you are not a robot!");
+      return;
+    }
+  
+    try {
+      const response = await axios.post("http://localhost:5000/verify-recaptcha", { recaptchaValue });
+      alert(response.data); 
+    } catch (error) {
+      alert("Error during reCAPTCHA check.");
+    }
+  };
+
+  const formik = useFormik<FormValues>({
+    initialValues: {
+      fullName: '',
+      email: '',
+      companyName: '',
+      phone: '',
+      message: '',
+    },
+    validationSchema: Yup.object({
+      fullName: Yup.string().required('Full Name is required'),
+      email: Yup.string().email('Invalid email address').required('Email is required'),
+      companyName: Yup.string().required('Company Name is required'),
+      phone: Yup.string()
+        .matches(/^\+?[0-9]{7,15}$/, 'Phone number is not valid')
+        .required('Phone number is required'),
+      message: Yup.string().required('Message is required'),
+    }),
+    onSubmit: (values) => {
+      if (recaptchaValue) {
+        console.log('Form submitted:', values);
+        handleSubmit();
+        setShowContactModal(false);
+        formik.resetForm();
+      } else {
+        alert('Please verify you are not a robot');
+      }
+    },
+  });
+
+  const handleRecaptchaChange = (value: string | null): void => {
+    setRecaptchaValue(value);
+  };
+  
+
+  const siteKey = import.meta.env.VITE_REACT_APP_SITE_KEY;
+
+  if (!siteKey) {
+    throw new Error("REACT_APP_SITE_KEY is missing in .env");
+  }
 
   useEffect(() => {
     const language = isTR ? 'tr' : 'en';
@@ -193,23 +266,173 @@ const Navbar: React.FC = () => {
               key={item.id}
               className="text-white font-bold px-2 cursor-pointer text-sm"
             >
-            <Link
-              to={item.to}
-              smooth={true}
-              duration={500}
-              className="btn btn-ghost rounded-btn"
-            >
-              {item.text}
-            </Link>
+              <Link
+                to={item.to}
+                smooth={true}
+                duration={500}
+                className="btn btn-ghost rounded-btn"
+              >
+                {item.text}
+              </Link>
             </div>
           ))}
 
+          {/* Contact Us Modal */}
+
+          <div className="flex items-center rounded-full text-black bg-white px-4 py-2 shadow-md hover:bg-gray-100 transition">
+            <button onClick={() => setShowContactModal(true)} className="text-sm font-medium">
+              Contact Us
+            </button>
+          </div>
+
+          {showContactModal && (
+            <div className="absolute top-[400px] inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+              <div className="bg-white w-[80vw] h-[70vh] rounded-lg shadow-lg flex">
+                {/* Left Section: Text and Contact Info */}
+                <div className="w-1/2 p-6">
+                  {/* Modal Header */}
+                  <div className="flex flex-col mb-4">
+                    <button
+                      className="text-gray-600 hover:text-gray-800 mb-4 transition"
+                      onClick={() => setShowContactModal(false)}
+                    >
+                      <IoCloseSharp size={24} />
+                    </button>
+                    <h2 className="text-gray-700 text-3xl font-semibold">We are here to assist you.</h2>
+                  </div>
+
+                  {/* Modal Description */}
+                  <p className="text-sm text-gray-700 text-xl mb-6">
+                    We highly value your interest. Please take a moment to complete the form and our team
+                    will respond promptly to your inquiry.
+                  </p>
+
+                  {/* Contact Info */}
+                  <div className="mb-4">
+                    <div className="flex items-center gap-2 text-lg text-gray-700">
+                      <TiLocation size={30} />
+                      <p>5055 Keller Springs Rd, Suite 250, Addison, TX 75001</p>
+                    </div>
+                    <div className="flex items-center gap-2 text-lg text-gray-700 mt-2">
+                      <MdContactPhone size={30} />
+                      <p>Call: +1 855 585 7344</p>
+                    </div>
+                    <div className="flex items-center gap-2 text-lg text-gray-700 mt-2">
+                      <IoMdMail size={30} />
+                      <p>info@imagevision.ai</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Section: Form */}
+                <div className="w-1/2 p-6 border-l">
+                  <form onSubmit={formik.handleSubmit} className="space-y-4">
+                    <div className="grid grid-cols-2 gap-4">
+                      <label className="block">
+                        <span className="text-black text-sm font-medium">Full Name</span>
+                        <input
+                          type="text"
+                          name="fullName"
+                          value={formik.values.fullName}
+                          onChange={formik.handleChange}
+                          onBlur={formik.handleBlur}
+                          className="mt-1 w-full p-2 border text-black rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                        />
+                        {formik.touched.fullName && formik.errors.fullName && (
+                          <div className="text-red-500 text-sm mt-1">{formik.errors.fullName}</div>
+                        )}
+                      </label>
+
+                      <label className="block">
+                        <span className="text-black text-sm font-medium">Email</span>
+                        <input
+                          type="email"
+                          name="email"
+                          value={formik.values.email}
+                          onChange={formik.handleChange}
+                          onBlur={formik.handleBlur}
+                          className="mt-1 w-full p-2 border text-black rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                        />
+                        {formik.touched.email && formik.errors.email && (
+                          <div className="text-red-500 text-sm mt-1">{formik.errors.email}</div>
+                        )}
+                      </label>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-4">
+                      <label className="block">
+                        <span className="text-black text-sm font-medium">Company Name</span>
+                        <input
+                          type="text"
+                          name="companyName"
+                          value={formik.values.companyName}
+                          onChange={formik.handleChange}
+                          onBlur={formik.handleBlur}
+                          className="mt-1 w-full p-2 border text-black rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                        />
+                        {formik.touched.companyName && formik.errors.companyName && (
+                          <div className="text-red-500 text-sm mt-1">{formik.errors.companyName}</div>
+                        )}
+                      </label>
+
+                      <label className="block">
+                        <span className="text-black text-sm font-medium">Phone Number</span>
+                        <input
+                          type="text"
+                          name="phone"
+                          value={formik.values.phone}
+                          onChange={formik.handleChange}
+                          onBlur={formik.handleBlur}
+                          className="mt-1 w-full p-2 border text-black rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                        />
+                        {formik.touched.phone && formik.errors.phone && (
+                          <div className="text-red-500 text-sm mt-1">{formik.errors.phone}</div>
+                        )}
+                      </label>
+                    </div>
+
+                    <label className="block">
+                      <span className="text-black text-sm font-medium">Message</span>
+                      <textarea
+                        name="message"
+                        rows={4}
+                        value={formik.values.message}
+                        onChange={formik.handleChange}
+                        onBlur={formik.handleBlur}
+                        className="mt-1 w-full p-2 border text-black rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                      ></textarea>
+                      {formik.touched.message && formik.errors.message && (
+                        <div className="text-red-500 text-sm mt-1">{formik.errors.message}</div>
+                      )}
+                    </label>
+
+                    <div className="flex items-center space-x-4 mt-4">
+                      <ReCAPTCHA
+                        sitekey={siteKey}
+                        onChange={handleRecaptchaChange}
+                        className="flex-shrink-0"
+                      />
+
+                      <button
+                        type="submit"
+                        disabled={!recaptchaValue}
+                        className="py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition disabled:opacity-50"
+                      >
+                        Submit
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Language */}
-          <div className="switch" onClick={() => { setIsTR(!isTR) }}>
-            <div className="switch-toggles">
-              <div className="tr">EN</div>
-              <div className="en">TR</div>
-              <div className="toggle-circle" style={{ transform: isTR ? 'translateX(4px)' : 'translateX(40px)' }}></div>
+          <div className="flex items-center justify-center" onClick={() => { setIsTR(!isTR) }}>
+            <div className="relative flex items-center justify-between w-[80px] h-[36px] px-[12px] py-[6px] text-[16px] text-black bg-white cursor-pointer rounded-full  switch-toggles">
+              <div className="h-[24px] text-[16px]">EN</div>
+              <div className="h-[24px] text-[16px]">TR</div>
+              <div className="absolute bg-black w-[26px] h-[26px] rounded-[50%] top-[5px] left-[5px] toggle-circle" style={{ transform: isTR ? 'translateX(4px)' : 'translateX(40px)' }}></div>
             </div>
           </div>
         </div>
