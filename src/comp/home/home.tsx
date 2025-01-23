@@ -19,7 +19,7 @@ function Home() {
       .filter(([key]) => key.startsWith('homeAnimation_text'))
       .map(([, value]) => value);
 
-    setSequences(updatedSequences);
+    setSequences(updatedSequences as string[]);
   };
   useEffect(() => {
 

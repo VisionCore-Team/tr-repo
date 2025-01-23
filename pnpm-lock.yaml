@@ -23,6 +23,9 @@ importers:
       framer-motion:
         specifier: ^11.1.7
         version: 11.11.9(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      i18next:
+        specifier: ^24.2.1
+        version: 24.2.1(typescript@5.6.3)
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -87,6 +90,9 @@ importers:
         specifier: ^2.3.0
         version: 2.5.4
     devDependencies:
+      '@types/i18next':
+        specifier: ^13.0.0
+        version: 13.0.0(typescript@5.6.3)
       '@types/node':
         specifier: ^22.8.1
         version: 22.10.9
@@ -556,6 +562,10 @@ packages:
 
   '@types/estree@1.0.6':
     resolution: {integrity: sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==}
+
+  '@types/i18next@13.0.0':
+    resolution: {integrity: sha512-gp/SIShAuf4WOqi8ey0nuI7qfWaVpMNCcs/xLygrh/QTQIXmlDC1E0TtVejweNW+7SGDY7g0lyxyKZIJuCKIJw==}
+    deprecated: This is a stub types definition. i18next provides its own type definitions, so you do not need this installed.
 
   '@types/node@22.10.9':
     resolution: {integrity: sha512-Ir6hwgsKyNESl/gLOcEz3krR4CBGgliDqBQ2ma4wIhEx0w+xnoeTq3tdrNw15kU3SxogDjOgv9sqdtLW8mIHaw==}
@@ -2108,6 +2118,12 @@ snapshots:
       '@babel/types': 7.25.8
 
   '@types/estree@1.0.6': {}
+
+  '@types/i18next@13.0.0(typescript@5.6.3)':
+    dependencies:
+      i18next: 24.2.1(typescript@5.6.3)
+    transitivePeerDependencies:
+      - typescript
 
   '@types/node@22.10.9':
     dependencies:
