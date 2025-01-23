@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import "../../App.css";
 import Home from "../home/home";
+import MeetTheTeam from "../teammembers/meettheteam";
 import MacWinBar from "../window/macWinbar";
 import Navbar from "../navbar/navbar";
 import bg from "../../../public/bg/cardbg.jpg";
@@ -142,14 +143,14 @@ const Layout = () => {
         </span>
         <br /> <br />
       </motion.div>
-
-      <div
+      <MeetTheTeam/>
+      {/* <div
         style={{ backgroundImage: `url(${bg})` }}
         className=" mb-10 max-w-[1200px] lg:mx-auto mx-10 h-full about rounded-t-xl"
       >
         <MacWinBar />
      
-      </div>
+      </div> */}
     <Footer/>
     </>
   );

@@ -110,10 +110,10 @@ const Navbar: React.FC = () => {
       alert("Please, verify you are not a robot!");
       return;
     }
-  
+
     try {
       const response = await axios.post("http://localhost:5000/verify-recaptcha", { recaptchaValue });
-      alert(response.data); 
+      alert(response.data);
     } catch (error) {
       alert("Error during reCAPTCHA check.");
     }
@@ -151,7 +151,7 @@ const Navbar: React.FC = () => {
   const handleRecaptchaChange = (value: string | null): void => {
     setRecaptchaValue(value);
   };
-  
+
 
   const siteKey = import.meta.env.VITE_REACT_APP_SITE_KEY;
 
@@ -168,6 +168,7 @@ const Navbar: React.FC = () => {
   // State for tracking dropdown visibility
   const [dropdownVisibility, setDropdownVisibility] = useState<boolean[]>(groupItems.map(() => false));
   const dropdownRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const modalRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -180,6 +181,11 @@ const Navbar: React.FC = () => {
             return newVisibility;
           });
         }
+        if (showContactModal) {
+          if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+            setShowContactModal(false);
+          }
+        }
       });
     };
 
@@ -189,18 +195,160 @@ const Navbar: React.FC = () => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  }, [showContactModal]);
 
   // Toggle dropdown visibility on click
   const toggleDropdown = (index: number) => {
     setDropdownVisibility((prev) => {
-      const newVisibility = prev.map((visible, i) => (i === index ? !visible : false)); // сбрасываем все, кроме текущего
+      const newVisibility = prev.map((visible, i) => (i === index ? !visible : false));
       return newVisibility;
     });
   };
 
   return (
     <div className="navbar bg-base-300 rounded-box flex items-center justify-between max-w-[1240px] mx-auto px-4 text-white">
+
+      {showContactModal && (
+          <div className="absolute top-[400px] inset-0 flex justify-center items-center z-50">
+          <div ref={modalRef} className="bg-white w-[70vw] rounded-lg shadow-lg flex">
+            {/* Left Section: Text and Contact Info */}
+            <div className="w-1/2 p-6">
+              {/* Modal Header */}
+              <div className="flex flex-col mb-4">
+                <button
+                  className="text-gray-600 hover:text-gray-800 mb-4 transition"
+                  onClick={() => setShowContactModal(false)}
+                >
+                  <IoCloseSharp size={24} />
+                </button>
+                <h2 className="text-gray-700 text-3xl font-semibold">We are here to assist you.</h2>
+              </div>
+
+              {/* Modal Description */}
+              <p className="text-sm text-gray-700 text-xl mb-6">
+                We highly value your interest. Please take a moment to complete the form and our team
+                will respond promptly to your inquiry.
+              </p>
+
+              {/* Contact Info */}
+              <div className="mb-4">
+                <div className="flex items-center gap-2 text-lg text-gray-700">
+                  <TiLocation size={30} />
+                  <p>Deventer, NL</p>
+                </div>
+                <div className="flex items-center gap-2 text-lg text-gray-700 mt-2">
+                  <MdContactPhone size={30} />
+                  <p>Call: +31 6 14946511</p>
+                </div>
+                <div className="flex items-center gap-2 text-lg text-gray-700 mt-2">
+                  <IoMdMail size={30} />
+                  <p>support@visioncore.com.tr</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Section: Form */}
+            <div className="w-1/2 p-6 border-l">
+              <form onSubmit={formik.handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <label className="block">
+                    <span className="text-black text-sm font-medium">Full Name</span>
+                    <input
+                      type="text"
+                      name="fullName"
+                      value={formik.values.fullName}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      className="mt-1 w-full p-2 border text-black rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    />
+                    {formik.touched.fullName && formik.errors.fullName && (
+                      <div className="text-red-500 text-sm mt-1">{formik.errors.fullName}</div>
+                    )}
+                  </label>
+
+                  <label className="block">
+                    <span className="text-black text-sm font-medium">Email</span>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formik.values.email}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      className="mt-1 w-full p-2 border text-black rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    />
+                    {formik.touched.email && formik.errors.email && (
+                      <div className="text-red-500 text-sm mt-1">{formik.errors.email}</div>
+                    )}
+                  </label>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <label className="block">
+                    <span className="text-black text-sm font-medium">Company Name</span>
+                    <input
+                      type="text"
+                      name="companyName"
+                      value={formik.values.companyName}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      className="mt-1 w-full p-2 border text-black rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    />
+                    {formik.touched.companyName && formik.errors.companyName && (
+                      <div className="text-red-500 text-sm mt-1">{formik.errors.companyName}</div>
+                    )}
+                  </label>
+
+                  <label className="block">
+                    <span className="text-black text-sm font-medium">Phone Number</span>
+                    <input
+                      type="text"
+                      name="phone"
+                      value={formik.values.phone}
+                      onChange={formik.handleChange}
+                      onBlur={formik.handleBlur}
+                      className="mt-1 w-full p-2 border text-black rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                    />
+                    {formik.touched.phone && formik.errors.phone && (
+                      <div className="text-red-500 text-sm mt-1">{formik.errors.phone}</div>
+                    )}
+                  </label>
+                </div>
+
+                <label className="block">
+                  <span className="text-black text-sm font-medium">Message</span>
+                  <textarea
+                    name="message"
+                    rows={4}
+                    value={formik.values.message}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    className="mt-1 w-full p-2 border text-black rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  ></textarea>
+                  {formik.touched.message && formik.errors.message && (
+                    <div className="text-red-500 text-sm mt-1">{formik.errors.message}</div>
+                  )}
+                </label>
+
+                <div className="flex items-center gap-5 space-x-4 mt-4">
+                  <ReCAPTCHA
+                    sitekey={siteKey}
+                    onChange={handleRecaptchaChange}
+                    className="flex-shrink-0"
+                  />
+
+                  <button
+                    type="submit"
+                    disabled={!recaptchaValue}
+                    className="py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition disabled:opacity-50"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      )}
       {/* Logo */}
       <SlideIn>
         <a href="/" className="flex justify-center md:justify-start w-full md:w-auto">
@@ -284,148 +432,6 @@ const Navbar: React.FC = () => {
               Contact Us
             </button>
           </div>
-
-          {showContactModal && (
-            <div className="absolute top-[400px] inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-              <div className="bg-white w-[80vw] h-[70vh] rounded-lg shadow-lg flex">
-                {/* Left Section: Text and Contact Info */}
-                <div className="w-1/2 p-6">
-                  {/* Modal Header */}
-                  <div className="flex flex-col mb-4">
-                    <button
-                      className="text-gray-600 hover:text-gray-800 mb-4 transition"
-                      onClick={() => setShowContactModal(false)}
-                    >
-                      <IoCloseSharp size={24} />
-                    </button>
-                    <h2 className="text-gray-700 text-3xl font-semibold">We are here to assist you.</h2>
-                  </div>
-
-                  {/* Modal Description */}
-                  <p className="text-sm text-gray-700 text-xl mb-6">
-                    We highly value your interest. Please take a moment to complete the form and our team
-                    will respond promptly to your inquiry.
-                  </p>
-
-                  {/* Contact Info */}
-                  <div className="mb-4">
-                    <div className="flex items-center gap-2 text-lg text-gray-700">
-                      <TiLocation size={30} />
-                      <p>Deventer, NL</p>
-                    </div>
-                    <div className="flex items-center gap-2 text-lg text-gray-700 mt-2">
-                      <MdContactPhone size={30} />
-                      <p>Call: +31 6 14946511</p>
-                    </div>
-                    <div className="flex items-center gap-2 text-lg text-gray-700 mt-2">
-                      <IoMdMail size={30} />
-                      <p>support@visioncore.com.tr</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Right Section: Form */}
-                <div className="w-1/2 p-6 border-l">
-                  <form onSubmit={formik.handleSubmit} className="space-y-4">
-                    <div className="grid grid-cols-2 gap-4">
-                      <label className="block">
-                        <span className="text-black text-sm font-medium">Full Name</span>
-                        <input
-                          type="text"
-                          name="fullName"
-                          value={formik.values.fullName}
-                          onChange={formik.handleChange}
-                          onBlur={formik.handleBlur}
-                          className="mt-1 w-full p-2 border text-black rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                        />
-                        {formik.touched.fullName && formik.errors.fullName && (
-                          <div className="text-red-500 text-sm mt-1">{formik.errors.fullName}</div>
-                        )}
-                      </label>
-
-                      <label className="block">
-                        <span className="text-black text-sm font-medium">Email</span>
-                        <input
-                          type="email"
-                          name="email"
-                          value={formik.values.email}
-                          onChange={formik.handleChange}
-                          onBlur={formik.handleBlur}
-                          className="mt-1 w-full p-2 border text-black rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                        />
-                        {formik.touched.email && formik.errors.email && (
-                          <div className="text-red-500 text-sm mt-1">{formik.errors.email}</div>
-                        )}
-                      </label>
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-4">
-                      <label className="block">
-                        <span className="text-black text-sm font-medium">Company Name</span>
-                        <input
-                          type="text"
-                          name="companyName"
-                          value={formik.values.companyName}
-                          onChange={formik.handleChange}
-                          onBlur={formik.handleBlur}
-                          className="mt-1 w-full p-2 border text-black rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                        />
-                        {formik.touched.companyName && formik.errors.companyName && (
-                          <div className="text-red-500 text-sm mt-1">{formik.errors.companyName}</div>
-                        )}
-                      </label>
-
-                      <label className="block">
-                        <span className="text-black text-sm font-medium">Phone Number</span>
-                        <input
-                          type="text"
-                          name="phone"
-                          value={formik.values.phone}
-                          onChange={formik.handleChange}
-                          onBlur={formik.handleBlur}
-                          className="mt-1 w-full p-2 border text-black rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                        />
-                        {formik.touched.phone && formik.errors.phone && (
-                          <div className="text-red-500 text-sm mt-1">{formik.errors.phone}</div>
-                        )}
-                      </label>
-                    </div>
-
-                    <label className="block">
-                      <span className="text-black text-sm font-medium">Message</span>
-                      <textarea
-                        name="message"
-                        rows={4}
-                        value={formik.values.message}
-                        onChange={formik.handleChange}
-                        onBlur={formik.handleBlur}
-                        className="mt-1 w-full p-2 border text-black rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                      ></textarea>
-                      {formik.touched.message && formik.errors.message && (
-                        <div className="text-red-500 text-sm mt-1">{formik.errors.message}</div>
-                      )}
-                    </label>
-
-                    <div className="flex items-center space-x-4 mt-4">
-                      <ReCAPTCHA
-                        sitekey={siteKey}
-                        onChange={handleRecaptchaChange}
-                        className="flex-shrink-0"
-                      />
-
-                      <button
-                        type="submit"
-                        disabled={!recaptchaValue}
-                        className="py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition disabled:opacity-50"
-                      >
-                        Submit
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          )}
 
           {/* Language */}
           <div className="flex items-center justify-center" onClick={() => { setIsTR(!isTR) }}>
