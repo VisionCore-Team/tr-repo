@@ -9,7 +9,7 @@ export default function Blog() {
       <div className="navbar-container w-full p-0">
         <Navbar />
       </div>
-
+      
       {/* Title */}
       <div className="mt-10 text-center text-4xl font-bold text-white mx-auto">
         <h1>Insights in Computer Vision</h1>
