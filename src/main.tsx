@@ -2,10 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
-import './translate/Translate.js'
+import { StateContext } from './context/StateContext'
+import './translate/Translate'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-      <App/>
+      <StateContext>
+        <App/>
+      </StateContext>
   </React.StrictMode>
 )

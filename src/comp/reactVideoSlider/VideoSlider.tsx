@@ -94,7 +94,7 @@ const VideoSlider: React.FC = () => {
               <img
                 src={video.thumbnail}
                 alt={video.title}
-                className="w-full h-48 object-cover rounded-lg shadow-lg"
+                className="w-full h-64 object-cover rounded-lg shadow-lg"
               />
               <div className="absolute inset-0 flex items-center justify-center">
                 <svg

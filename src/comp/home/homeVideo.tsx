@@ -1,4 +1,4 @@
-import homeVideo from '/video/homeVideocompress.mp4';
+import homeVideo from '/video/siteBackgroundVideo.mp4';
 import { SlideIn } from '../fade/SlideIn';
 
 const BackgroundVideo = () => {
@@ -9,6 +9,7 @@ const BackgroundVideo = () => {
     autoPlay
     loop
     muted
+    preload="auto"
     className="w-96 rounded-2xl shadow-2xl shadow-black transform md:translate-x-[-120px] mx-auto" // X ekseninde 20px sola kaydırma büyük ekranlarda olur
   /></SlideIn>
     

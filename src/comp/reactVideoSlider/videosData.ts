@@ -18,13 +18,13 @@ const videosData: Video[] = [
     id: 2,
     title: "video_title2",
     url: "https://www.youtube.com/watch?v=SEumbIehmI4",
-      thumbnail: "https://img.youtube.com/vi/SEumbIehmI4/hqdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/SEumbIehmI4/hqdefault.jpg",
   },
   {
     id: 3,
     title: "video_title3",
     url: "https://www.youtube.com/watch?v=bYB9CnX8lTo",
-      thumbnail: "https://img.youtube.com/vi/bYB9CnX8lTo/hqdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/bYB9CnX8lTo/hqdefault.jpg",
   },
   // Daha fazla video ekleyin...
 ];
