@@ -38,23 +38,29 @@ const MeetTheTeam: React.FC = () => {
       name: "Veysel Öztürk",
       position: t('veysel_position'),
       photo: veyselPhoto,
-    }
+    },
+    {
+      id: 4,
+      name: "Ahmet Mehmet",
+      position: t('sirous_position'),
+      photo: sirousPhoto,
+    },
   ];
 
   return (
-    <div className="p-8 bg-white dark:bg-gray-900 mb-10">
+    <div className="p-8 bg-dark:bg-gray-900 mb-10">
       <div className="relative">
-        {/* Кнопки навигации */}
+        {/* Navigation buttons */}
         <div
-          className="swiper-button-prev absolute top-1/2 left-0 -translate-y-1/2 z-10 w-10 h-10 bg-gray-800 text-white flex items-center justify-center rounded-full cursor-pointer shadow-lg"
+          className="swiper-button-prev text-white active:scale-110"
           aria-label="Previous"
         />
         <div
-          className="swiper-button-next absolute top-1/2 right-0 -translate-y-1/2 z-10 w-10 h-10 bg-gray-800 text-white flex items-center justify-center rounded-full cursor-pointer shadow-lg"
+          className="swiper-button-next text-white active:scale-110"
           aria-label="Next"
         />
 
-        {/* Swiper слайдер */}
+        {/* Swiper slider */}
         <Swiper
           modules={[Navigation]}
           navigation={{

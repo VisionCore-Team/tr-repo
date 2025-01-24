@@ -4,4 +4,3 @@ declare namespace NodeJS {
     REACT_APP_SITE_KEY: string;
   }
 }
-
