@@ -33,16 +33,4 @@
        -webkit-filter: hue-rotate(-360deg);
      }
     }
-
-    
-    
-    .home-container {
-      position: relative;
-      width: 100%;
-      height: 100vh; /* Tüm ekranı kaplayacak şekilde ayarlayın */
-      display: flex;
-      flex-direction: column;
-      align-items: center; /* İçeriği yatayda merkeze hizalar */
-      justify-content: center; /* İçeriği dikeyde merkeze hizalar */
-    }
     

@@ -1,4 +1,4 @@
-import {addTranslation} from '../../translate/Translate';
+import {addTranslation} from '../../../translate/Translate';
 
 addTranslation({
     tr: {

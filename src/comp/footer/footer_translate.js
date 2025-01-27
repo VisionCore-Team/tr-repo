@@ -10,8 +10,6 @@ addTranslation ({
         legal: "Hukuki",
         policy: "Gizlilik Politikası",
         terms: "Kullanım Şartları",
-        follow: "Bizi Takip Edin",
-        contact: "İletişim",
     },
     en:{
         solutions: "Solutions",
@@ -22,7 +20,5 @@ addTranslation ({
         legal: "Legal",
         policy: "Privacy Policy",
         terms: "Terms & Conditions",
-        follow: "Follow us",
-        contact: "Contact us",
     }
 });

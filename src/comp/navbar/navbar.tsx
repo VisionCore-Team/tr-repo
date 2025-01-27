@@ -1,14 +1,14 @@
-import "./navbar.css";
-import { Link } from "react-scroll";
-import logo from "../../../public/img/Ç.svg";
-import { SlideIn } from "../fade/SlideIn";
 import { useState, useEffect, useRef } from "react";
 import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
-import ContactModal from "../contactModal/contactModal";
+import { Link } from "react-scroll";
 
-import './navbar_translate';
+import logo from "../../../public/img/Ç.svg";
+import { SlideIn } from "../../helpers/fade/SlideIn";
+import ContactModal from "./contactModal/contactModal";
 import { useStateContext } from "../../context/StateContext";
+import './navbar_translate';
+import "./navbar.css";
 
 interface SolutionItem {
   id: number;
@@ -29,6 +29,12 @@ interface GroupItem {
   id: number;
   navbarName: string;
   subgroup: SubgroupItem[];
+}
+
+interface NavItem {
+  id: number,
+  text: string,
+  to:string
 }
 
 const Navbar: React.FC = () => {
@@ -81,7 +87,7 @@ const Navbar: React.FC = () => {
       ]
     },
   ]
-  const navItems = [
+  const navItems: NavItem[] = [
     { id: 1, text: t('projects'), to: "project" },
     { id: 2, text: t('core'), to: "core" },
   ];
@@ -131,102 +137,103 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <div className="navbar bg-base-300 rounded-box flex items-center justify-between max-w-[1240px] mx-auto px-4 text-white">
-      {showContactModal && <ContactModal />}
-      {/* Logo */}
-      <SlideIn>
-        <a href="/" className="flex justify-center md:justify-start w-full md:w-auto">
-          <img src={logo} alt="VisionCore Logo" className="h-16 md:h-16" />
-        </a>
-      </SlideIn>
+    <div className="navbar">
+      <div className="navbar-container bg-base-300 rounded-box flex items-center max-w-[1240px] justify-between mx-auto px-4 text-white">
+        {showContactModal && <ContactModal />}
+        {/* Logo */}
+        <SlideIn>
+          <a href="/" className="flex justify-center md:justify-start w-full md:w-auto">
+            <img src={logo} alt="VisionCore Logo" className="h-16 md:h-16" />
+          </a>
+        </SlideIn>
 
-      {/* Navigation */}
-      <SlideIn duration={0.8} delay={0.8}>
-        <div className="flex items-center space-x-5 mt-4 md:mt-0">
+        {/* Navigation */}
+        <SlideIn duration={0.8} delay={0.8}>
+          <div className="flex items-center space-x-5 mt-4 md:mt-0">
 
-          {/* Group Dropdowns */}
-          {
-            groupItems.map((group, groupIndex) => (
-              <div className="relative" key={groupIndex}>
-                <button
-                  onClick={() => toggleDropdown(groupIndex)}
-                  className="btn btn-ghost rounded-btn text-sm font-bold"
-                >
-                  {group.navbarName}
-                </button>
-                {dropdownVisibility[groupIndex] && (
-                  <div ref={(el) => (dropdownRefs.current[groupIndex] = el)} className="absolute top-full left-0 mt-2 w-56 bg-sky-950 border border-gray-700 rounded-lg shadow-lg z-10">
-                    {group.subgroup.map((subgroupItem, subgroupIndex) => (
-                      <ul key={`subgroup-${groupIndex}-${subgroupIndex}`} className="px-4 py-2 hover:bg-sky-800 cursor-pointer">
-                        {
-                          Object.keys(subgroupItem).length === 1 ? (
-                            Object.entries(subgroupItem).map(([key, value]) => (
-                              <li key={key} className="mt-2">
-                                {Object.keys(subgroupItem).length === 1 && <span className="font-semibold">{t(`${key}`)}</span>}
-                                <ul className="mt-1 ml-4">
-                                  {
-                                    Array.isArray(value) && value.map((item) => (
-                                      <li key={item.id} className="py-1">
-                                        <a href={item.to || '#'} className="hover:text-gray-300">
-                                          {item.text || 'No Text'}
-                                        </a>
-                                      </li>
-                                    ))
-                                  }
-                                </ul>
+            {/* Group Dropdowns */}
+            {
+              groupItems.map((group, groupIndex) => (
+                <div className="relative" key={groupIndex}>
+                  <button
+                    onClick={() => toggleDropdown(groupIndex)}
+                    className="btn btn-ghost rounded-btn text-sm font-bold"
+                  >
+                    {group.navbarName}
+                  </button>
+                  {dropdownVisibility[groupIndex] && (
+                    <div ref={(el) => (dropdownRefs.current[groupIndex] = el)} className="absolute top-full left-0 mt-2 w-56 bg-sky-950 border border-gray-700 rounded-lg shadow-lg z-10">
+                      {group.subgroup.map((subgroupItem, subgroupIndex) => (
+                        <ul key={`subgroup-${groupIndex}-${subgroupIndex}`} className="px-4 py-2 hover:bg-sky-800 cursor-pointer">
+                          {
+                            Object.keys(subgroupItem).length === 1 ? (
+                              Object.entries(subgroupItem).map(([key, value]) => (
+                                <li key={key} className="mt-2">
+                                  {Object.keys(subgroupItem).length === 1 && <span className="font-semibold">{t(`${key}`)}</span>}
+                                  <ul className="mt-1 ml-4">
+                                    {
+                                      Array.isArray(value) && value.map((item) => (
+                                        <li key={item.id} className="py-1">
+                                          <a href={item.to || '#'} className="hover:text-gray-300">
+                                            {item.text || 'No Text'}
+                                          </a>
+                                        </li>
+                                      ))
+                                    }
+                                  </ul>
+                                </li>
+                              ))
+                            ) : (
+                              <li key={subgroupItem.id || subgroupIndex} className="py-1">
+                                <a href={subgroupItem.to || '#'} className="hover:text-gray-300">
+                                  {subgroupItem.text || 'No Text'}
+                                </a>
                               </li>
-                            ))
-                          ) : (
-                            <li key={subgroupItem.id || subgroupIndex} className="py-1">
-                              <a href={subgroupItem.to || '#'} className="hover:text-gray-300">
-                                {subgroupItem.text || 'No Text'}
-                              </a>
-                            </li>
-                          )
-                        }
-                      </ul>
-                    ))}
+                            )
+                          }
+                        </ul>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))
+            }
 
-                  </div>
-                )}
-              </div>
-            ))
-          }
-
-          {/* Other Navigation Items */}
-          {navItems.map((item) => (
-            <div
-              key={item.id}
-              className="text-white font-bold px-2 cursor-pointer text-sm"
-            >
-              <Link
-                to={item.to}
-                smooth={true}
-                duration={500}
-                className="btn btn-ghost rounded-btn"
+            {/* Other Navigation Items */}
+            {navItems.map((item) => (
+              <div
+                key={item.id}
+                className="text-white font-bold px-2 cursor-pointer text-sm"
               >
-                {item.text}
-              </Link>
-            </div>
-          ))}
+                <Link
+                  to={item.to}
+                  smooth={true}
+                  duration={500}
+                  className="btn btn-ghost rounded-btn"
+                >
+                  {item.text}
+                </Link>
+              </div>
+            ))}
 
-          {/* Contact Us Button */}
-          <div className="flex items-center rounded-full text-black bg-white px-4 py-2 shadow-md hover:bg-gray-100 transition">
-            <button onClick={() => setShowContactModal(true)} className="text-sm font-medium">
-              Contact Us
-            </button>
-          </div>
+            {/* Contact Us Button */}
+            <div className="flex items-center rounded-full text-black bg-white px-4 py-2 shadow-md hover:bg-gray-100 transition">
+              <button onClick={() => setShowContactModal(true)} className="text-sm font-medium">
+                Contact Us
+              </button>
+            </div>
 
-          {/* Language */}
-          <div className="flex items-center justify-center" onClick={() => { setIsTR(!isTR) }}>
-            <div className="relative flex items-center justify-between w-[80px] h-[36px] px-[12px] py-[6px] text-[16px] text-black bg-white cursor-pointer rounded-full  switch-toggles">
-              <div className="h-[24px] text-[16px]">EN</div>
-              <div className="h-[24px] text-[16px]">TR</div>
-              <div className="absolute bg-black w-[26px] h-[26px] rounded-[50%] top-[5px] left-[5px] toggle-circle" style={{ transform: isTR ? 'translateX(4px)' : 'translateX(40px)' }}></div>
+            {/* Language */}
+            <div className="flex items-center justify-center" onClick={() => { setIsTR(!isTR) }}>
+              <div className="relative flex items-center justify-between w-[80px] h-[36px] px-[12px] py-[6px] text-[16px] text-black bg-white cursor-pointer rounded-full  switch-toggles">
+                <div className="h-[24px] text-[16px]">EN</div>
+                <div className="h-[24px] text-[16px]">TR</div>
+                <div className="absolute bg-black w-[26px] h-[26px] rounded-[50%] top-[5px] left-[5px] toggle-circle" style={{ transform: isTR ? 'translateX(4px)' : 'translateX(40px)' }}></div>
+              </div>
             </div>
           </div>
-        </div>
-      </SlideIn>
+        </SlideIn>
+      </div>
     </div>
   );
 };

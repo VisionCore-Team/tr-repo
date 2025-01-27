@@ -2,12 +2,12 @@
 .chart-container-wrapper {
     display: flex;
     flex-direction: row; /* Masaüstünde metin ve grafikleri yan yana yerleştirmek için */
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
     gap: 2rem;
     width: 100%;
     max-width: 1024px;
-    margin: 0 auto;
+    margin: 30px auto;
     padding: 2rem;
 }
 
@@ -222,7 +222,7 @@
     transform: translate(-50%, -50%);
 }
 .chart-bottom-text {
-    bottom: 25%;
+    bottom: 15%;
     z-index: 1;
     position: relative;
     color: #fff;

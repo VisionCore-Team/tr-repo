@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import './chartbar.css';
-import '../../App.css';
+import '../../../../App.css';
 import './chartbar_translate';
 
 type ChartBarProps = {
@@ -12,9 +12,6 @@ type ChartBarProps = {
   bottomText: string;
   barClass: string;
 };
-
-
-
 
 const Chart = () => {
   
@@ -32,7 +29,7 @@ const Chart = () => {
           <div className="chart-container ">
             <div
               ref={ref}
-              className="chart-graph sm:mb-12   " // Başlangıçta "inactive" sınıfı eklenir
+              className="chart-graph" // Başlangıçta "inactive" sınıfı eklenir
               data-height={barClass === 'chart-bar-1' ? '59%' : '100%'}
             >
               <div className="chart-top-text">

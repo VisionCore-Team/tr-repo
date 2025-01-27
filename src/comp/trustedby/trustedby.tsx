@@ -1,4 +1,4 @@
-import { SlideIn } from "../fade/SlideIn";
+import { SlideIn } from "../../helpers/fade/SlideIn";
 
 const TrustedBy = () => {
     return (

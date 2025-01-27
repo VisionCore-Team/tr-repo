@@ -10,10 +10,7 @@ import { IoMdMail } from "react-icons/io";
 import { IoCloseSharp } from "react-icons/io5";
 import { useTranslation } from 'react-i18next';
 import { FaLinkedin } from "react-icons/fa6";
-import { FaDiscord } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
-import { useStateContext } from '../../context/StateContext';
+import { useStateContext } from '../../../context/StateContext';
 import { doctypeList } from './uploadDocFormatsList';
 import './contactModal_translate';
 
@@ -136,10 +133,7 @@ const ContactModal: React.FC = () => {
             {/* Social Media */}
 
             <div className="flex gap-5 text-gray-700 text-3xl">
-              <Link to="https://www.linkedin.com/company/visioncore" className='cursor-pointer'><FaLinkedin /></Link>
-              <Link to="#" className='cursor-pointer'><FaDiscord /></Link>
-              <Link to="#" className='cursor-pointer'><FaTwitter /></Link>
-              <Link to="#" className='cursor-pointer'><FaGithub /></Link>
+              <Link to="https://www.linkedin.com/company/visioncore" className='cursor-pointer transform transition-transform duration-200 hover:scale-110'><FaLinkedin /></Link>
             </div>
           </div>
         </div>
@@ -221,7 +215,7 @@ const ContactModal: React.FC = () => {
                 value={formik.values.message}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
-                className="mt-1 w-full p-2 border text-black rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                className="mt-1 w-full p-2 border text-black rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none resize-none"
               ></textarea>
               {formik.touched.message && formik.errors.message && (
                 <div className="text-red-500 text-sm mt-1">{formik.errors.message}</div>

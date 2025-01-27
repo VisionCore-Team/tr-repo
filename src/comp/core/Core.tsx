@@ -6,7 +6,7 @@ import image2 from "../../../public/img/object_detection.webp";
 import image3 from "../../../public/img/semantic.webp";
 import image4 from "../../../public/img/instance.webp";
 import contactBackground from "../../../public/bg/islemci.jpeg";
-import { SlideIn } from "../fade/SlideIn";
+import { SlideIn } from "../../helpers/fade/SlideIn";
 
 const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
   e.preventDefault();

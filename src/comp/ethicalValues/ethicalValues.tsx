@@ -1,7 +1,7 @@
 "use client";
 
 import Navbar from "../navbar/navbar";
-import { SlideIn } from "../fade/SlideIn";
+import { SlideIn } from "../../helpers/fade/SlideIn";
 
 export default function EthicalValues() {
   return (

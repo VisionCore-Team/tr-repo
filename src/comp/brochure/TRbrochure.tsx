@@ -6,7 +6,7 @@ import uc from "../../../public/img/3.svg";
 import dort from "../../../public/img/4.svg";
 
 
-import { SlideIn } from "../fade/SlideIn";
+import { SlideIn } from "../../helpers/fade/SlideIn";
 import Navbar from "../navbar/navbar";
 import "../../index.css";
 
