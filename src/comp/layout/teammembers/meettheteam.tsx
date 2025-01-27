@@ -1,13 +1,16 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useTranslation } from "react-i18next";
 import { Navigation } from "swiper/modules";
+import { motion } from "framer-motion";
 import "swiper/swiper-bundle.css";
 import "swiper/css/navigation";
-import { useTranslation } from "react-i18next";
-import '../about/about_translate';
-import caglarPhoto from '../../../public/img/caglarcakmak.jpeg';
-import sirousPhoto from '../../../public/img/sirousbadali.jpeg';
-import veyselPhoto from '../../../public/img/veyselselimozturk.jpg';
+
+import '../../about/about_translate';
+import './meattheteam_translate';
+import caglarPhoto from '../../../../public/img/caglarcakmak.jpeg';
+import sirousPhoto from '../../../../public/img/sirousbadali.jpeg';
+import veyselPhoto from '../../../../public/img/veyselselimozturk.jpg';
 
 
 type TeamMember = {
@@ -49,6 +52,18 @@ const MeetTheTeam: React.FC = () => {
 
   return (
     <div className="p-8 bg-dark:bg-gray-900 mb-10">
+      <motion.div
+        className="text-center font-thin gradient-text"
+        initial={{ opacity: 0, x: -100 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, delay: 0.4 }}
+      >
+        <br />
+        <span className=" text-5xl font-light mt-4 leading-none">
+          {t('meetTeam')}
+        </span>
+        <br /> <br />
+      </motion.div>
       <div className="relative">
         {/* Navigation buttons */}
         <div

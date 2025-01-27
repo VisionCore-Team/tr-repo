@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import my_img1 from "../../../public/img/sirousbadali.jpeg";
-import { FadeUp } from "../fade/FadeUp";
+import { FadeUp } from "../../helpers/fade/FadeUp";
 
 function Sirous() {
   const { t } = useTranslation();

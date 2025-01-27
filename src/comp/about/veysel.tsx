@@ -5,7 +5,7 @@ import "react-social-icons/github";
 import "react-social-icons/whatsapp";
 import "react-social-icons/mailto";
 import "react-social-icons/instagram";
-import { FadeUp } from "../fade/FadeUp";
+import { FadeUp } from "../../helpers/fade/FadeUp";
 
 function Veysel() {
   const { t } = useTranslation();

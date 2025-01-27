@@ -1,7 +1,7 @@
 // src/comp/solutions/health-solutions.tsx
 "use client";
 import "../../index.css";
-import { SlideIn } from "../fade/SlideIn";
+import { SlideIn } from "../../helpers/fade/SlideIn";
 import Navbar from "../navbar/navbar";
 // Import images from the public directory
 import Glomeru from "../../../public/project/p3.jpeg";
