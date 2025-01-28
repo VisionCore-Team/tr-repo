@@ -1,6 +1,12 @@
 import { addTranslation } from "../../../../translate/Translate";
 
-addTranslation ({
+interface Translation {
+    [language: string]: {
+      [key: string]: string;
+    };
+  }
+  
+  const translations: Translation = {
     tr: {
         chartbar_title1: "Yeni Dünyanın Petrolü",
         chartbar_title2: "Yapay Zeka",
@@ -21,4 +27,6 @@ addTranslation ({
         billion_text: 'Estimated USD Value in 2021',
         trillion_text: 'Estimated AI USD Value in 2030',
     }
-});
+};
+
+addTranslation(translations);

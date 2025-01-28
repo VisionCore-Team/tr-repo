@@ -1,6 +1,11 @@
 import {addTranslation} from '../../translate/Translate';
-
-addTranslation({
+interface Translation {
+    [language: string]: {
+      [key: string]: string;
+    };
+  }
+  
+const translations: Translation = {
     tr: {
         solutions: "Çözümler",
         company: "Şirket",
@@ -23,6 +28,7 @@ addTranslation({
         core: "Bilgisayarlı Görü Türleri",
         blog: "Blog",
         brochure: "Broşür",
+        contactUs: "Bize ulaş",
         language: "Dil Seç",
         fullNameRequired: "Tam isim gereklidir",
         emailRequired: "E-mail gereklidir",
@@ -65,6 +71,7 @@ addTranslation({
         core: "Core",
         blog: "Blog",
         brochure: "Brochure",
+        contactUs: "Contact Us",
         language: "Language",
         fullNameRequired: "Full name is required",
         emailRequired: "E-mail is required",
@@ -85,4 +92,6 @@ addTranslation({
         message: "Message",
         submit: "Submit"
     }
-});
+};
+
+addTranslation(translations);

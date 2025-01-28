@@ -1,6 +1,12 @@
 import { addTranslation } from "../../translate/Translate";
 
-addTranslation({
+interface Translation {
+    [language: string]: {
+      [key: string]: string;
+    };
+  }
+
+  const translations: Translation = {
     tr: {
         caglar_position: "Kurucu, AI Geliştirici",
         caglar_location: "Deventer, Hollanda / Izmir, Türkiye",
@@ -23,4 +29,6 @@ addTranslation({
         veysel_location: "Kocaeli, Turkey",
         veysel_about: "With a deep passion for technology and programming, I have immersed myself in the world of web development, focusing particularly on React.js. Beyond my academic pursuits, I actively seek opportunities to expand my knowledge and skills in this field, constantly experimenting with new technologies and frameworks to stay at the forefront of industry trends."
     }
-});
+};
+
+addTranslation(translations);

@@ -1,0 +1,20 @@
+.tabs-container {
+    display: flex;
+    overflow-x: auto; /* Горизонтальный скролл */
+    /* white-space: nowrap; Запрет переноса на новую строку */
+    scrollbar-width: thin; /* Тонкий скроллбар для Firefox */
+    scrollbar-color: #334155 transparent; /* Цвет скроллбара */
+  }
+  
+.tabs-container::-webkit-scrollbar {
+height: 6px; /* Высота скроллбара для Chrome/Safari */
+}
+
+.tabs-container::-webkit-scrollbar-thumb {
+background-color: #334155; /* Цвет ползунка */
+border-radius: 3px; /* Скругление углов */
+}
+
+.tabs-container::-webkit-scrollbar-track {
+background-color: transparent; /* Цвет трека */
+}

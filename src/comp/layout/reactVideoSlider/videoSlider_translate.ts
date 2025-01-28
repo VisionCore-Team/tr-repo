@@ -1,6 +1,12 @@
 import { addTranslation } from "../../../translate/Translate";
 
-addTranslation ({
+interface Translation {
+    [language: string]: {
+      [key: string]: string;
+    };
+  }
+  
+  const translations: Translation = {
     tr: {
         title: "Hizmetlerimizi Keşfedin",
         video_title1: "Kapalı Alan Araç Takip Sistemleri",
@@ -13,4 +19,6 @@ addTranslation ({
         video_title2: "White Blood Cell Detection",
         video_title3: "Solar Panel Defect Detection Systems",
     }
-});
+};
+
+addTranslation(translations);
