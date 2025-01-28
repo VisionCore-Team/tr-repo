@@ -1,6 +1,12 @@
 import { addTranslation } from "../../translate/Translate";
 
-addTranslation ({
+interface Translation {
+    [language: string]: {
+      [key: string]: string;
+    };
+  }
+  
+  const translations: Translation = {
     tr:{
         solutions: "Çözümler",
         health: "Sağlık",
@@ -21,4 +27,6 @@ addTranslation ({
         policy: "Privacy Policy",
         terms: "Terms & Conditions",
     }
-});
+};
+
+addTranslation(translations);

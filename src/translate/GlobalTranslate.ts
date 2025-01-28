@@ -1,4 +1,14 @@
-export default {
+export interface TranslationContent {
+    [key: string]: string;
+  }
+  
+  export interface LanguageResources {
+    [key: string]: {
+      [key: string]: string;
+    };
+  }
+
+const translations: LanguageResources = {
     tr: {
         explore_insights: "En Son İçgörülerimizi Keşfedin",
         explore_insights_text: "Dijital dönüşümde güncel kalmak ve işletmenizin başarısını güçlendirmek için en yeni çözümlerimizi ve içgörülerimizi keşfedin. Visioncore’un inovatif çözümleri, sizi geleceğe hazırlamak için teknolojiyi iş süreçlerinize entegre eder ve sektörde bir adım önde olmanızı sağlar.",
@@ -47,3 +57,5 @@ export default {
         ml_vs_dl_text: "Machine learning and deep learning offer powerful capabilities within AI. While machine learning excels in prediction and classification, deep learning handles complex structures and large datasets. Visioncore customizes these technologies to align with business needs, from customer analysis and predictive modeling to image and language processing. Selecting the right approach ensures businesses maximize the value of their AI investments."
     }
 }
+
+export default translations;

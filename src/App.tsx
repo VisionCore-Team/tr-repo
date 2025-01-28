@@ -3,15 +3,11 @@ import EthicalValues from './comp/ethicalValues/ethicalValues.tsx';
 import Blog from './comp/blog/blog.tsx'
 import Core from './comp/core/Core.tsx';
 import Layout from './comp/layout/layout.tsx';
-import Manufacturing from './comp/solutions/Manufacturing.tsx';
-import Health from './comp/solutions/Health.tsx';
-import Agriculture from './comp/solutions/Agriculture.tsx';
-import LicensePlate from './comp/solutions/LicensePlate.tsx';
-import MarketShelf from './comp/solutions/MarketShelf.tsx';
+import Team from './comp/team/team.tsx';
+import Solutions from './comp/solutions/Solutions.tsx';
 import TRBrochure  from './comp/brochure/TRbrochure.tsx';
 import ENGBrochure  from './comp/brochure/ENGbrochure.tsx';
 import Slider from './testing.tsx';
-import Port from './comp/solutions/Port.tsx';
 function App() {
   return (
     <>
@@ -22,12 +18,8 @@ function App() {
           <Route path="/core" element={<Core />} />
           <Route path='/blog' element={<Blog />} />
           <Route path='/testing' element={< Slider/>} />
-          <Route path='/solutions/byindustry/health' element = {<Health />}/>
-          <Route path='/solutions/byindustry/manufacturing' element = {<Manufacturing />}/>
-          <Route path='/solutions/byindustry/agriculture' element = {<Agriculture />}/>
-          <Route path='/solutions/bysolution/licenseplate' element = {<LicensePlate />}/>
-          <Route path='/solutions/bysolution/marketshelf' element = {<MarketShelf />}/>
-          <Route path='/solutions/bysolution/portoperations' element = {<Port />}/>
+          <Route path='/team' element={< Team/>} />
+          <Route path='/solutions/:category/:id' element = {<Solutions/>}/>
           <Route path='/brochure/tr' element = {<TRBrochure/>}/>
           <Route path='/brochure/eng' element = {<ENGBrochure/>}/>
         </Routes>

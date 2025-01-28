@@ -73,7 +73,6 @@ function Footer() {
                 <div className="sm:flex sm:items-center sm:justify-between">
                     <div className="text-gray-300">
                         © 2024 VisionCore All Rights Reserved.
-
                     </div>
                 </div>
             </div>

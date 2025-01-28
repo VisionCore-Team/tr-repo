@@ -1,6 +1,12 @@
 import {addTranslation} from '../../../translate/Translate';
 
-addTranslation({
+interface Translation {
+    [language: string]: {
+      [key: string]: string;
+    };
+  }
+  
+  const translations: Translation = {
     tr: {
         fullNameRequired: "Tam isim gereklidir",
         emailRequired: "E-mail gereklidir",
@@ -45,4 +51,6 @@ addTranslation({
         robotVerify: "Please, verify you are not a robot!",
         recaptchaError: "Error during reCAPTCHA check."
     }
-});
+};
+
+addTranslation(translations);

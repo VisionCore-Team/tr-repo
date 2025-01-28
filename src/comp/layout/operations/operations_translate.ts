@@ -1,6 +1,12 @@
 import { addTranslation } from "../../../translate/Translate";
 
-addTranslation ({
+interface Translation {
+    [language: string]: {
+      [key: string]: string;
+    };
+  }
+  
+  const translations: Translation = {
     tr: {
         operations_heading: "İşinizde Her Zaman Gözünüz Olsun",
         operations_text: "VisionCore olarak, endüstrilerin karşılaştığı zorlukları derinden anlıyor ve en uygun çözümleri müşterilerimizle birlikte geliştiriyoruz. VisionCore ile Sektör Rekabetinizde Fark Yaratın!",
@@ -26,4 +32,6 @@ addTranslation ({
         operations_element_text_3: "Identify choke points, security risks, delays, and staffing issues to cut costs.",
         operations_element_text_4: "Assess safety compliance in real-time with immediate alerts to mitigate risks.",
     }
-});
+};
+
+addTranslation(translations);

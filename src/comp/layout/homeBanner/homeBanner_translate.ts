@@ -1,6 +1,11 @@
 import { addTranslation } from "../../../translate/Translate";
-
-addTranslation({
+interface Translation {
+    [language: string]: {
+      [key: string]: string;
+    };
+  }
+  
+  const translations: Translation = {
     tr: {
         homeBanner_text: "Endüstri 5.0 Devrimine Katılmaya Hazır mısınız?",
         homeAnimation_text1: "Kalite Kontrol ve Muayene Sistemleri",
@@ -15,4 +20,6 @@ addTranslation({
         homeAnimation_text3: "Industrial Automation Solutions",
         homeAnimation_text4: "Computer Vision Solutions For Enterprises"
     }
-});
+};
+
+addTranslation(translations);

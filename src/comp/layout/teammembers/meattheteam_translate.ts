@@ -1,6 +1,12 @@
 import { addTranslation } from "../../../translate/Translate";
 
-addTranslation ({
+interface Translation {
+    [language: string]: {
+      [key: string]: string;
+    };
+}
+  
+  const translations: Translation = {
     tr: {
         meetTeam: "Bizi Tanıyın",
 
@@ -8,4 +14,6 @@ addTranslation ({
     en: {
         meetTeam: "Meet The Team"
     }
-});
+};
+
+addTranslation(translations);

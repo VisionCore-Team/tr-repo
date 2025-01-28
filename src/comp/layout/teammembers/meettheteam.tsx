@@ -6,49 +6,12 @@ import { motion } from "framer-motion";
 import "swiper/swiper-bundle.css";
 import "swiper/css/navigation";
 
-import '../../about/about_translate';
 import './meattheteam_translate';
-import caglarPhoto from '../../../../public/img/caglarcakmak.jpeg';
-import sirousPhoto from '../../../../public/img/sirousbadali.jpeg';
-import veyselPhoto from '../../../../public/img/veyselselimozturk.jpg';
+import teamData from "../../team/team_data";
 
-
-type TeamMember = {
-  id: number;
-  name: string;
-  position: string;
-  photo: string;
-};
 
 const MeetTheTeam: React.FC = () => {
   const { t } = useTranslation();
-
-  const teamMembers: TeamMember[] = [
-    {
-      id: 1,
-      name: "Çağlar Çakmak",
-      position: t('caglar_position'),
-      photo: caglarPhoto,
-    },
-    {
-      id: 2,
-      name: "Sirous Badali",
-      position: t('sirous_position'),
-      photo: sirousPhoto,
-    },
-    {
-      id: 3,
-      name: "Veysel Öztürk",
-      position: t('veysel_position'),
-      photo: veyselPhoto,
-    },
-    {
-      id: 4,
-      name: "Ahmet Mehmet",
-      position: t('sirous_position'),
-      photo: sirousPhoto,
-    },
-  ];
 
   return (
     <div className="p-8 bg-dark:bg-gray-900 mb-10">
@@ -91,15 +54,15 @@ const MeetTheTeam: React.FC = () => {
             1024: { slidesPerView: 3 },
           }}
         >
-          {teamMembers.map((member) => (
+          {teamData.map((member) => (
             <SwiperSlide key={member.id} className="flex flex-col items-center">
               <img
-                src={member.photo}
+                src={member.image}
                 alt={member.name}
                 className="w-32 h-32 bg-white rounded-full object-cover mb-4 shadow-lg"
               />
               <h3 className="text-lg text-white font-semibold">{member.name}</h3>
-              <p className="text-sm text-white">{member.position}</p>
+              <p className="text-sm text-white">{t(`${member.position}`)}</p>
             </SwiperSlide>
           ))}
         </Swiper>

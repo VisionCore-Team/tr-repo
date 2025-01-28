@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
-import { Link } from "react-scroll";
 
 import logo from "../../../public/img/Ç.svg";
 import { SlideIn } from "../../helpers/fade/SlideIn";
@@ -58,9 +57,9 @@ const Navbar: React.FC = () => {
         },
         {
           byIndustry: [
-            { id: 1, text: t('health'), to: "/solutions/byindustry/health" },
-            { id: 2, text: t('manufacturing'), to: "/solutions/byindustry/manufacturing" },
-            { id: 3, text: t('agriculture'), to: "/solutions/byindustry/agriculture" },
+            { id: 3, text: t('health'), to: "/solutions/byindustry/health" },
+            { id: 4, text: t('manufacturing'), to: "/solutions/byindustry/manufacturing" },
+            { id: 5, text: t('agriculture'), to: "/solutions/byindustry/agriculture" },
           ]
         }
       ]
@@ -69,27 +68,27 @@ const Navbar: React.FC = () => {
       id: 2,
       navbarName: t('company'),
       subgroup: [
-        { id: 1, text: t('team'), to: "about" },
-        { id: 2, text: t('ethical_values'), to: "ethicalvalues" },
-        { id: 3, text: t('partners'), to: "partners" },
-        { id: 4, text: t('news'), to: "news" },
+        { id: 1, text: t('team'), to: "/team" },
+        { id: 2, text: t('ethical_values'), to: "/ethicalvalues" },
+        { id: 3, text: t('partners'), to: "/partners" },
+        { id: 4, text: t('news'), to: "/news" },
       ]
     },
     {
       id: 3,
       navbarName: t('resources'),
       subgroup: [
-        { id: 1, text: t('tech_stack'), to: "skills" },
-        { id: 2, text: t('blog'), to: "blog" },
-        { id: 3, text: t('brochure'), to: "brochure/tr" },
-        { id: 4, text: t('case_study'), to: "caseStudy" },
-        { id: 5, text: t('webinars'), to: "webinars" },
+        { id: 1, text: t('tech_stack'), to: "/skills" },
+        { id: 2, text: t('blog'), to: "/blog" },
+        { id: 3, text: t('brochure'), to: "/brochure/tr" },
+        { id: 4, text: t('case_study'), to: "/caseStudy" },
+        { id: 5, text: t('webinars'), to: "/webinars" },
       ]
     },
   ]
   const navItems: NavItem[] = [
-    { id: 1, text: t('projects'), to: "project" },
-    { id: 2, text: t('core'), to: "core" },
+    { id: 1, text: t('projects'), to: "/project" },
+    { id: 2, text: t('core'), to: "/core" },
   ];
 
   //State for tracking interface language
@@ -201,25 +200,15 @@ const Navbar: React.FC = () => {
 
             {/* Other Navigation Items */}
             {navItems.map((item) => (
-              <div
-                key={item.id}
-                className="text-white font-bold px-2 cursor-pointer text-sm"
-              >
-                <Link
-                  to={item.to}
-                  smooth={true}
-                  duration={500}
-                  className="btn btn-ghost rounded-btn"
-                >
-                  {item.text}
-                </Link>
+              <div key={item.id} className="text-white font-bold cursor-pointer text-sm">
+                  <a href={item.to || '#'} className="hover:text-gray-300">{item.text || 'No Text'}</a>
               </div>
             ))}
 
             {/* Contact Us Button */}
             <div className="flex items-center rounded-full text-black bg-white px-4 py-2 shadow-md hover:bg-gray-100 transition">
               <button onClick={() => setShowContactModal(true)} className="text-sm font-medium">
-                Contact Us
+                {t('contactUs')}
               </button>
             </div>
 
