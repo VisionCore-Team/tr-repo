@@ -215,7 +215,6 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    box-shadow: 2px 10px 30px 4px rgb(0 0 0 / .1);
     overflow: hidden;
     font-size: larger;
     left: 50%;

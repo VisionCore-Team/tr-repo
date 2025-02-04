@@ -6,7 +6,6 @@ import { SlideIn } from "../../helpers/fade/SlideIn";
 export default function EthicalValues() {
   return (
     <div>
-      <Navbar />
       <div className="bg-black bg-opacity-50 w-full p-6 rounded">
         <h1 className="text-center text-5xl mt-10 mb-10 font-semibold text-white">
           Ethical Values

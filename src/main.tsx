@@ -4,11 +4,15 @@ import App from './App'
 import './index.css'
 import { StateContext } from './context/StateContext'
 import './translate/Translate';
+import Layout from './Layout'
+import { BrowserRouter } from 'react-router-dom'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
+  <BrowserRouter>
       <StateContext>
-        <App/>
+        <Layout>
+          <App/>
+        </Layout>
       </StateContext>
-  </React.StrictMode>
+  </BrowserRouter>
 )

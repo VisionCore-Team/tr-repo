@@ -150,7 +150,7 @@ const ContactModal: React.FC = () => {
   };
 
   return (
-    <div className="absolute top-[400px] inset-0 flex justify-center items-center z-50">
+    <div style={{zIndex: 5000}} className="absolute top-[400px] inset-0 flex justify-center items-center z-5000">
       <Spin spinning={loading}>
         <div ref={modalRef} className="bg-white w-[70vw] rounded-lg shadow-lg flex">
           {/* Left Section: Text and Contact Info */}

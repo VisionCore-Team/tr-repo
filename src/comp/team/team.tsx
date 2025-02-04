@@ -24,7 +24,6 @@ const Team = () => {
     };
     return (
         <div>
-            <Navbar/>
             <motion.div
                 className="text-center font-thin gradient-text"
                 initial={{ opacity: 0, x: -100 }}
@@ -98,7 +97,6 @@ const Team = () => {
                 </div>
                 <TeamMember memberData={teamsData.find(el => el.id === selectedTab) || null} />
             </div>
-            <Footer/>
         </div>
 
     );

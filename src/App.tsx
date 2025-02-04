@@ -8,11 +8,12 @@ import Solutions from './comp/solutions/Solutions.tsx';
 import TRBrochure  from './comp/brochure/TRbrochure.tsx';
 import ENGBrochure  from './comp/brochure/ENGbrochure.tsx';
 import Slider from './testing.tsx';
+import FouroFour from './404.tsx';
 function App() {
   return (
     <>
-      <BrowserRouter>
         <Routes>
+          <Route path="*" element={<FouroFour />} />
           <Route path="/" element={<Layout />} />
           <Route path="/ethicalvalues" element={<EthicalValues />} />
           <Route path="/core" element={<Core />} />
@@ -23,7 +24,6 @@ function App() {
           <Route path='/brochure/tr' element = {<TRBrochure/>}/>
           <Route path='/brochure/eng' element = {<ENGBrochure/>}/>
         </Routes>
-      </BrowserRouter>
     </>
   );
 }

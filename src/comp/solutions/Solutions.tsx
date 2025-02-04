@@ -18,9 +18,6 @@ export default function Solutions() {
   return (
     <SlideIn>
       <div className="health-page min-h-screen bg-neutral-800">
-        <div className="navbar-container bg-zinc-950 ">
-          <Navbar />
-        </div>
         <div>
           <div
             className="home-container h-24"
@@ -124,7 +121,6 @@ export default function Solutions() {
             </div>
           ))
         }
-        <Footer />
       </div>
     </SlideIn>
   );

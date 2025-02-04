@@ -6,9 +6,6 @@ import { FadeUp } from "../../helpers/fade/FadeUp";
 export default function Blog() {
   return (
     <div className="blog-page">
-      <div className="navbar-container w-full p-0">
-        <Navbar />
-      </div>
       
       {/* Title */}
       <div className="mt-10 text-center text-4xl font-bold text-white mx-auto">

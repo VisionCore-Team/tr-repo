@@ -26,9 +26,6 @@ export default function Blog() {
 
   return (
     <div className="blog-page">
-      <div className="navbar-container w-full p-0">
-        <Navbar />
-      </div>
 
       <div className="mt-10 text-center text-5xl  text-white mx-auto mb-5">
         <h1 className="italic">Explore <br /><span className="font-semibold">Core Computer Vision Models </span></h1>

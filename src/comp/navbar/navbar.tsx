@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from "react-router";
+import Hamburger from "./Hamburger";
 
 import logo from "../../../public/img/Ç.svg";
 import { SlideIn } from "../../helpers/fade/SlideIn";
@@ -33,12 +35,16 @@ interface GroupItem {
 interface NavItem {
   id: number,
   text: string,
-  to:string
+  to: string
 }
 
 const Navbar: React.FC = () => {
 
   const { t } = useTranslation();
+  const nav = useNavigate();
+  const [menu, setMenu] = useState(false);
+  const [activeDropDown, setActiveDropDown] = useState(-1);
+
 
   const { showContactModal, setShowContactModal } = useStateContext();
 
@@ -136,19 +142,19 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <div className="navbar">
-      <div className="navbar-container bg-base-300 rounded-box flex items-center max-w-[1240px] justify-between mx-auto px-4 text-white">
+    <div className="navbar" style={{ backdropFilter: menu ? "blur(0px)" : "blur(10px)" }}>
+      <div className="navbar-container bg-base-300 rounded-box flex items-center justify-between max-w-[1240px] justify-between mx-auto px-4 text-white">
         {showContactModal && <ContactModal />}
         {/* Logo */}
         <SlideIn>
-          <a href="/" className="flex justify-center md:justify-start w-full md:w-auto">
+          <a onClick={() => nav("/")} className="flex justify-center md:justify-start w-full md:w-auto" style={{ position: "relative", zIndex: 999 }}>
             <img src={logo} alt="VisionCore Logo" className="h-16 md:h-16" />
           </a>
         </SlideIn>
 
         {/* Navigation */}
         <SlideIn duration={0.8} delay={0.8}>
-          <div className="flex items-center space-x-5 mt-4 md:mt-0">
+          <div className="mainNavigators flex items-center space-x-5 mt-4 md:mt-0">
 
             {/* Group Dropdowns */}
             {
@@ -156,7 +162,7 @@ const Navbar: React.FC = () => {
                 <div className="relative" key={groupIndex}>
                   <button
                     onClick={() => toggleDropdown(groupIndex)}
-                    className="btn btn-ghost rounded-btn text-sm font-bold"
+                    className="btn btn-ghost rounded-btn text-sm"
                   >
                     {group.navbarName}
                   </button>
@@ -172,8 +178,8 @@ const Navbar: React.FC = () => {
                                   <ul className="mt-1 ml-4">
                                     {
                                       Array.isArray(value) && value.map((item) => (
-                                        <li key={item.id} className="py-1">
-                                          <a href={item.to || '#'} className="hover:text-gray-300">
+                                        <li onClick={() => nav(item.to || '#')} key={item.id} className="py-1">
+                                          <a className="hover:text-gray-300">
                                             {item.text || 'No Text'}
                                           </a>
                                         </li>
@@ -183,8 +189,8 @@ const Navbar: React.FC = () => {
                                 </li>
                               ))
                             ) : (
-                              <li key={subgroupItem.id || subgroupIndex} className="py-1">
-                                <a href={subgroupItem.to || '#'} className="hover:text-gray-300">
+                              <li onClick={() => nav(subgroupItem.to || '#')} key={subgroupItem.id || subgroupIndex} className="py-1">
+                                <a className="hover:text-gray-300">
                                   {subgroupItem.text || 'No Text'}
                                 </a>
                               </li>
@@ -200,8 +206,8 @@ const Navbar: React.FC = () => {
 
             {/* Other Navigation Items */}
             {navItems.map((item) => (
-              <div key={item.id} className="text-white font-bold cursor-pointer text-sm">
-                  <a href={item.to || '#'} className="hover:text-gray-300">{item.text || 'No Text'}</a>
+              <div key={item.id} className="text-white cursor-pointer text-sm">
+                <a onClick={() => nav(item.to || '#')} className="hover:text-gray-300">{item.text || 'No Text'}</a>
               </div>
             ))}
 
@@ -222,6 +228,62 @@ const Navbar: React.FC = () => {
             </div>
           </div>
         </SlideIn>
+        <Hamburger status={(status: boolean | ((prevState: boolean) => boolean)) => setMenu(status)} />
+      </div>
+      <div className="fullWidthNav" style={{ width: menu ? "100vw" : "0vw" }}>
+        <div className="paddingArea">
+          {groupItems.map((item, key) => (
+            <div className="dropdown" key={key}>
+              <p style={{ cursor: "pointer" }} onClick={() => setActiveDropDown(key)}>{item.navbarName}</p>
+              {item.subgroup.map((subgroupItem, subgroupIndex) => (
+                <ul style={activeDropDown === key ? { height: "auto" } : {}} key={`subgroup-${key}-${subgroupIndex}`} className="mainUl px-4 py-2 cursor-pointer">
+                  {
+                    Object.keys(subgroupItem).length === 1 ? (
+                      Object.entries(subgroupItem).map(([key, value]) => (
+                        <li key={key} className="mt-2">
+                          {Object.keys(subgroupItem).length === 1 && <span className="font-semibold">{t(`${key}`)}</span>}
+                          <ul className="mt-1 ml-4">
+                            {
+                              Array.isArray(value) && value.map((item) => (
+                                <li onClick={() => nav(item.to || '#')} key={item.id} className="py-1">
+                                  <a className="hover:text-gray-300">
+                                    {item.text || 'No Text'}
+                                  </a>
+                                </li>
+                              ))
+                            }
+                          </ul>
+                        </li>
+                      ))
+                    ) : (
+                      <li onClick={() => nav(subgroupItem.to || '#')} key={subgroupItem.id || subgroupIndex} className="py-1">
+                        <a className="hover:text-gray-300">
+                          {subgroupItem.text || 'No Text'}
+                        </a>
+                      </li>
+                    )
+                  }
+                </ul>
+              ))}
+            </div>
+          ))}
+          {navItems.map((item, key) => (
+            <a onClick={() => nav(item.to || "#")} key={key}>{item.text}</a>
+          ))}
+          <div style={{alignSelf: "end"}} className="flex items-end justify-end rounded-full text-black bg-white px-4 py-2 shadow-md hover:bg-gray-100 transition">
+            <button onClick={() => setShowContactModal(true)} className="text-sm font-medium">
+              {t('contactUs')}
+            </button>
+          </div>
+
+          <div style={{alignSelf: "end"}} className="flex items-center justify-center" onClick={() => { setIsTR(!isTR) }}>
+            <div className="relative flex items-center justify-between w-[80px] h-[36px] px-[12px] py-[6px] text-[16px] text-black bg-white cursor-pointer rounded-full  switch-toggles">
+              <div className="h-[24px] text-[16px]">EN</div>
+              <div className="h-[24px] text-[16px]">TR</div>
+              <div className="absolute bg-black w-[26px] h-[26px] rounded-[50%] top-[5px] left-[5px] toggle-circle" style={{ transform: isTR ? 'translateX(4px)' : 'translateX(40px)' }}></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

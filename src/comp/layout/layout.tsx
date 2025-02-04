@@ -10,12 +10,9 @@ import "../../App.css";
 const Layout = () => {
   return (
     <>
-      <Navbar />
       <HomeBanner />
       <Operations/>
       <VideoSlider />
-      <ScrollBanner />
-      <MeetTheTeam/>
       {/* <div
         style={{ backgroundImage: `url(${bg})` }}
         className=" mb-10 max-w-[1200px] lg:mx-auto mx-10 h-full about rounded-t-xl"
@@ -23,7 +20,6 @@ const Layout = () => {
         <MacWinBar />
      
       </div> */}
-    <Footer/>
     </>
   );
 };

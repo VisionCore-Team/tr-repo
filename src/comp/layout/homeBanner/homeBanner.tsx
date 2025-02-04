@@ -34,35 +34,35 @@ function HomeBanner() {
 
   return (
     <div className='homeBanner-container lg:flex h-[100vh] lg:justify-between lg:items-center'>
-      <div className='flex flex-col text-center md:translate-x-[+110px] lg:text-left'>
-        <FadeUp delay={0.6} duration={1.0}>
-          <h1 className=' text-gray-200 font-thin text-3xl pb-3 pt-2 mb-4 mt-8 sm:mt-0'>
-            {t('homeBanner_text')}
-          </h1>
-        </FadeUp>
-        <FadeUp delay={0.8} duration={1.2}>
-          <TypeAnimation
-            key={generatedSequence.join('')}
-            sequence={[...generatedSequence, Infinity]}
-            wrapper="span"
-            speed={40}
-            className='sm:text-md lg:text-xl font-light pb-3 text-white'
-            style={{ display: 'inline-block' }}
-            repeat={Infinity}
-          />
-        </FadeUp>
-      </div>
-      <div>
-        <SlideIn delay={0.8} duration={1}>
-          <video
-            src={homeVideo} // video dosyasının yolu
-            autoPlay
-            loop
-            muted
-            preload="auto"
-            className="w-[34rem] rounded-2xl shadow-2xl shadow-black transform md:translate-x-[-120px] mx-auto" // X ekseninde 20px sola kaydırma büyük ekranlarda olur
-          />
-        </SlideIn>
+      <div className="homeSlider">
+        <video
+          src={homeVideo}
+          autoPlay
+          loop
+          muted
+          disablePictureInPicture
+          preload="auto"
+          className="mainSlider"
+        />
+        <div className="gradient"/>
+        <div className='blurArea flex flex-col' style={{zIndex: 10}}>
+          <FadeUp delay={0.6} duration={1.0}>
+            <h1 className=' text-gray-200 mb-5 font-thin text-5xl sm:mt-0' style={{fontWeight: "bold"}}>
+              {t('homeBanner_text')}
+            </h1>
+          </FadeUp>
+          <FadeUp delay={0.8} duration={1.2}>
+            <TypeAnimation
+              key={generatedSequence.join('')}
+              sequence={[...generatedSequence, Infinity]}
+              wrapper="span"
+              speed={40}
+              className='sm:text-md lg:text-3xl font-light pb-3 text-white'
+              style={{ display: 'inline-block' }}
+              repeat={Infinity}
+            />
+          </FadeUp>
+        </div>
       </div>
     </div>
   );

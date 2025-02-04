@@ -30,7 +30,7 @@ const Operations = () => {
     ]
 
     return (
-        <div className="project-container relative bg-cover bg-center scroll-mt-[124px]">
+        <div className="project-container relative bg-cover bg-center scroll-mt-[124px] mt-20">
             <div className="lg:space-y-6">
                 <FadeUp delay={0.2} duration={0.8}>
                     <h2 className="mx-auto max-w-5xl px-6 text-white text-center text-2xl lg:text-6xl mb-8">{t('operations_heading')}</h2>

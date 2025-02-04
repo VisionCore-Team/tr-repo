@@ -48,7 +48,7 @@ const Chart = () => {
 
   return (
     <div className="chart-container-wrapper ">
-      <div className="cicek-text ">
+      <div className="cicek-text mb-8">
         <div className="">
           <div className="et_pb_text_inner ">
             <h2 className='cicek-text'>{`${t('chartbar_title1')}:`}

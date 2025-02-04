@@ -25,6 +25,7 @@ const VideoSlider: React.FC = () => {
     dots: true,
     infinite: true,
     speed: 500,
+    arrows: false,
     slidesToShow: 3, // Büyük ekranlarda gösterilecek video sayısı
     slidesToScroll: 1,
     autoplay: true, // Otomatik kaydırma
@@ -82,7 +83,7 @@ const VideoSlider: React.FC = () => {
   }, [activeVideo]);
 
   return (
-    <div className="w-11/12 mx-auto bg-gray-900 py-16">
+    <div className="w-11/12 mx-auto bg-gray-900 py-16" style={{width: "100%"}}>
       <h2 className="text-center text-3xl font-bold mb-8 text-white">{t('title')}</h2>
       <Slider {...settings} ref={sliderRef}>
         {translatedVideos.map((video) => (
