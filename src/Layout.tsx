@@ -2,7 +2,9 @@
 import Navbar from "./comp/navbar/navbar";
 import Footer from "./comp/footer/footer";
 
-function Layout({children}) {
+import { ReactNode } from 'react';
+
+function Layout({ children }: { children: ReactNode }) {
   return (
     <>
       <Navbar/>

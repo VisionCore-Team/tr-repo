@@ -1,14 +1,18 @@
 import { useEffect, useRef, useState } from 'react'
 import './navbar.css'
 
-function Hamburger({ status }) {
+interface HamburgerProps {
+  status: (menu: boolean) => void;
+}
+
+function Hamburger({ status }: HamburgerProps) {
   const [menu, setMenu] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const hamburger = useRef(null);
-  const menuspan1 = useRef(null);
-  const menuspan2 = useRef(null);
-  const menuspan3 = useRef(null);
+  const hamburger = useRef<HTMLDivElement>(null);
+  const menuspan1 = useRef<HTMLSpanElement>(null);
+  const menuspan2 = useRef<HTMLSpanElement>(null);
+  const menuspan3 = useRef<HTMLSpanElement>(null);
 
   useEffect(() => { status(menu) }, [menu])
 
@@ -23,35 +27,45 @@ function Hamburger({ status }) {
   const handleMenu = () => {
     if (!loading) {
       setLoading(true);
-      if (!menu) {
-        menuspan1.current.style.width = menuspan3.current.style.width = "30px";
-        setTimeout(() => {
-          hamburger.current.style.gap = 0;
-          menuspan1.current.style.transform = "translateY(1px)";
-          menuspan3.current.style.transform = "translateY(-1px)";
-          menuspan2.current.style.width = 0;
-          menuspan2.current.style.transform = "translateX(1rem)";
+      if (menuspan1.current && menuspan2.current && menuspan3.current && hamburger.current) {
+        if (!menu) {
+          menuspan1.current.style.width = menuspan3.current.style.width = "30px";
           setTimeout(() => {
-            menuspan1.current.style.rotate = "45deg"
-            menuspan3.current.style.rotate = "-45deg"
+            if (menuspan1.current && menuspan2.current && menuspan3.current && hamburger.current) {
+              menuspan1.current.style.transform = "translateY(1px)";
+              menuspan2.current.style.width = "0";
+              menuspan2.current.style.transform = "translateX(1rem)";
+              menuspan3.current.style.transform = "translateY(-1px)";
+              hamburger.current.style.gap = "0";
+            }
+            setTimeout(() => {
+              if (menuspan1.current && menuspan2.current && menuspan3.current && hamburger.current) {
+                menuspan1.current.style.rotate = "45deg"
+                menuspan3.current.style.rotate = "-45deg"
+              }
+            }, 300);
           }, 300);
-        }, 300);
-      }
-      else {
-        menuspan1.current.style.rotate = menuspan3.current.style.rotate = "0deg"
-        setTimeout(() => {
-          menuspan1.current.style.transform = "translateY(0)";
-          menuspan3.current.style.transform = "translateY(0)";
-          menuspan2.current.style.width = "30px";
-          menuspan2.current.style.transform = "translateX(0)";
-          hamburger.current.style.gap = ".5rem";
+        }
+        else {
+          menuspan1.current.style.rotate = menuspan3.current.style.rotate = "0deg"
           setTimeout(() => {
-            menuspan1.current.style.width = "15px";
-            menuspan3.current.style.width = "20px";
+            if (menuspan1.current && menuspan2.current && menuspan3.current && hamburger.current) {
+              menuspan1.current.style.transform = "translateY(0)";
+              menuspan3.current.style.transform = "translateY(0)";
+              menuspan2.current.style.width = "30px";
+              menuspan2.current.style.transform = "translateX(0)";
+              hamburger.current.style.gap = ".5rem";
+            }
+            setTimeout(() => {
+              if (menuspan1.current && menuspan2.current && menuspan3.current && hamburger.current) {
+                menuspan1.current.style.width = "15px";
+                menuspan3.current.style.width = "20px";
+              }
+            }, 300);
           }, 300);
-        }, 300);
+        }
+        setMenu(!menu);
       }
-      setMenu(!menu);
     }
   }
 
