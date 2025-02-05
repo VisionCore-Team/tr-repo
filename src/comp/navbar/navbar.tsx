@@ -76,24 +76,24 @@ const Navbar: React.FC = () => {
       subgroup: [
         { id: 1, text: t('team'), to: "/team" },
         { id: 2, text: t('ethical_values'), to: "/ethicalvalues" },
-        { id: 3, text: t('partners'), to: "/partners" },
-        { id: 4, text: t('news'), to: "/news" },
+        // { id: 3, text: t('partners'), to: "/partners" },
+        // { id: 4, text: t('news'), to: "/news" },
       ]
     },
     {
       id: 3,
       navbarName: t('resources'),
       subgroup: [
-        { id: 1, text: t('tech_stack'), to: "/skills" },
+        // { id: 1, text: t('tech_stack'), to: "/skills" },
         { id: 2, text: t('blog'), to: "/blog" },
         { id: 3, text: t('brochure'), to: "/brochure/tr" },
-        { id: 4, text: t('case_study'), to: "/caseStudy" },
-        { id: 5, text: t('webinars'), to: "/webinars" },
+        // { id: 4, text: t('case_study'), to: "/caseStudy" },
+        // { id: 5, text: t('webinars'), to: "/webinars" },
       ]
     },
   ]
   const navItems: NavItem[] = [
-    { id: 1, text: t('projects'), to: "/project" },
+    // { id: 1, text: t('projects'), to: "/project" },
     { id: 2, text: t('core'), to: "/core" },
   ];
 

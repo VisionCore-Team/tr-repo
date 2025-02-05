@@ -86,6 +86,7 @@
         flex-wrap: wrap; /* İçeriklerin taşmasını engeller */
         gap: 1rem;
         justify-content: center;
+        margin-bottom: 0;
     }
 
     .additional-text {
@@ -136,7 +137,6 @@
         font-size: 10px; /* Daha küçük ekranlar için alt metin boyutunu azaltma */
     }
 }
-
 
 .chart-top-value {
     font-size: 15px; /* Değeri temsil eden sayı için */
@@ -232,4 +232,18 @@
     font-size: larger;
     text-align: center;
     
+}
+
+@media (max-width: 425px) {
+    .chart-top-text {
+        width: 80px;
+        height: 80px;
+    }
+    .chart-top-value, .chart-top-unit {
+        font-size: 20px;
+    }
+    .chart-bottom-text {
+        font-size: 16px;
+        width: 125px;
+    }
 }

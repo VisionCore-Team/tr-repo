@@ -15,7 +15,7 @@ function Footer() {
         <footer className="bg-dark:bg-gray-900">
             <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
             <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-                <div className="md:flex md:justify-between">
+                <div className="md:flex md:justify-between max-md:flex max-md:flex-col max-md:items-center max-md: gap-5">
                     <div className="mb-6 md:mb-0 flex-column items-center justify-center">
                         <a href="https://visioncore.com.tr/" className="flex items-center">
                             <img src={logobüyük} className="h-48 me-3" alt="VisionCore Logo" />

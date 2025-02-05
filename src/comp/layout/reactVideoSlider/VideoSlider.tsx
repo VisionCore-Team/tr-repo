@@ -89,23 +89,25 @@ const VideoSlider: React.FC = () => {
         {translatedVideos.map((video) => (
           <div key={video.id} className="p-4">
             <div
-              className="relative cursor-pointer"
+              className="cursor-pointer"
               onClick={() => openVideo(video)}
             >
-              <img
-                src={video.thumbnail}
-                alt={video.title}
-                className="w-full h-64 object-cover rounded-lg shadow-lg"
-              />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <svg
-                  className="w-16 h-16 text-white opacity-75"
-                  fill="currentColor"
-                  viewBox="0 0 84 84"
-                >
-                  <circle cx="42" cy="42" r="42" fill="rgba(0,0,0,0.6)" />
-                  <polygon points="33,25 33,59 59,42" fill="white" />
-                </svg>
+              <div className="relative">
+                <img
+                  src={video.thumbnail}
+                  alt={video.title}
+                  className="w-full h-64 max-lg:h-48 max-md:h-40 object-cover rounded-lg shadow-lg"
+                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <svg
+                    className="w-16 h-16 text-white opacity-75"
+                    fill="currentColor"
+                    viewBox="0 0 84 84"
+                  >
+                    <circle cx="42" cy="42" r="42" fill="rgba(0,0,0,0.6)" />
+                    <polygon points="33,25 33,59 59,42" fill="white" />
+                  </svg>
+                </div>
               </div>
               <h3 className="mt-2 text-center text-lg text-white">
                 {video.title}
