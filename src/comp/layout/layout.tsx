@@ -13,13 +13,6 @@ const Layout = () => {
       <HomeBanner />
       <Operations/>
       <VideoSlider />
-      {/* <div
-        style={{ backgroundImage: `url(${bg})` }}
-        className=" mb-10 max-w-[1200px] lg:mx-auto mx-10 h-full about rounded-t-xl"
-      >
-        <MacWinBar />
-     
-      </div> */}
     </>
   );
 };
