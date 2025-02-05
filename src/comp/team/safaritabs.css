@@ -18,3 +18,78 @@ border-radius: 3px; /* Скругление углов */
 .tabs-container::-webkit-scrollbar-track {
 background-color: transparent; /* Цвет трека */
 }
+
+.allDataGrid{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5dvh;
+  min-height: 65vh;
+}
+
+.allDataGrid .allDataGrid-container{
+  width: 80%;
+  max-width: 1400px;
+}
+
+.allDataGrid .allDataGrid-container .allDataWrap{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: start;
+  gap: 1rem;
+}
+
+.allDataGrid .allDataGrid-container .allDataWrap .teamMember{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+  color: white;
+  text-align: center;
+}
+
+.allDataGrid .allDataGrid-container .allDataWrap .teamMember img{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  outline: 1px solid #fff;
+  outline-offset: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.selectedPerson{
+  width: 0;
+  height: 100dvh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  right: 0;
+  top: 0;
+  z-index: 99999;
+  background-color: rgba(13, 18, 37, .7);
+  backdrop-filter: blur(5px);
+  transition: ease .5s;
+  overflow: hidden;
+}
+
+.selectedPerson .selectedPersonContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+  color: white;
+  padding: 2rem;
+}
+
+.selectedPerson .selectedPersonContainer .closeButton{
+  font-size: 20px;
+  align-self: flex-end;
+  cursor: pointer;
+}

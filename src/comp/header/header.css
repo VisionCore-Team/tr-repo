@@ -1,0 +1,32 @@
+.mainHeader{
+    width: 100%;
+    height: 30vh;
+    background: linear-gradient(45deg, #0D1225, #354894);
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 3px solid #0D1225;
+}
+
+.mainHeader .container{
+    width: 80%;
+    max-width: 1400px;
+    height: calc(100% - 3rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding-bottom: 3rem;
+}
+
+.mainHeader .container .breadCrumb{
+    display: flex;
+    user-select: none;
+    color: white;
+    font-size: 20px;
+    align-items: center;
+}
+
+.mainHeader .container .breadCrumb a{
+    cursor: pointer;
+}

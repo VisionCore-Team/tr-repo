@@ -8,35 +8,60 @@ import Navbar from "../navbar/navbar";
 import Footer from "../footer/footer";
 import TeamMember from "./teamMember";
 import bg from '../../../public//bg/cardbg.jpg'
+import Header from "../header/header";
+import './safaritabs.css'
+import { FaXmark } from "react-icons/fa6";
 
 
 const Team = () => {
     const { t } = useTranslation();
     // Seçilen tab ismini state olarak tanımlıyoruz
-    const [selectedName, setSelectedName] = useState<string | null>(null);
-    const [selectedTab, setSelectedTab] = useState<number>(1);
+    /*const [selectedName, setSelectedName] = useState<string | null>(null);
+    const [selectedTab, setSelectedTab] = useState<number>(1);*/
 
 
     // Alt komponentten seçilen name'i yakalayan fonksiyon
-    const handleSelect = (name: string, id: number): void => {
-        setSelectedName(name);
-        setSelectedTab(id);
-    };
+    /* const handleSelect = (name: string, id: number): void => {
+         setSelectedName(name);
+         setSelectedTab(id);
+     };*/
+
+    const [selected, setSelected] = useState<TeamData | null>(null);
+
     return (
         <div>
-            <motion.div
-                className="text-center font-thin gradient-text"
-                initial={{ opacity: 0, x: -100 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1, delay: 0.4 }}
-            >
-                <br />
-                <span className=" text-5xl font-bold mt-4 leading-none">
-                {t('meetTeam')}
-                </span>
-                <br /> <br />
-            </motion.div>
-            <div
+            <Header name={t('meetTeam')} />
+            <div className="allDataGrid">
+                <div className="allDataGrid-container">
+                    <div className="allDataWrap">
+                        {teamsData.map((person, key) => (
+                            <div key={key} className="teamMember" onClick={() => setSelected(person)}>
+                                <img src={person.image} alt={person.name} />
+                                <b>{person.name}</b>
+                                <p>{t(`${person?.position}`)}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            <div className="selectedPerson" style={{width: selected ? "250px" : "0px"}}>
+                <div className="selectedPersonContainer">
+                    <FaXmark className="closeButton" onClick={() => setSelected(null)}/>
+                    {selected &&
+                        <>
+                            <img src={selected?.image} alt={selected?.name} />
+                            <b>{selected?.name}</b>
+                            <p>{t(`${selected?.position}`)}</p>
+                            <p>{t(`${selected?.location}`)}</p>
+                            <p>{t(`${selected?.about}`)}</p>
+                        </>
+                    }
+                </div>
+            </div>
+
+
+            {/*<div
                 style={{ backgroundImage: `url(${bg})` }}
                 className=" mb-10 max-w-[1200px] lg:mx-auto mx-10 h-full about rounded-t-xl"
             >
@@ -96,7 +121,7 @@ const Team = () => {
                     <SafariTabs list={teamsData} onSelect={handleSelect} />
                 </div>
                 <TeamMember memberData={teamsData.find(el => el.id === selectedTab) || null} />
-            </div>
+            </div>*/}
         </div>
 
     );

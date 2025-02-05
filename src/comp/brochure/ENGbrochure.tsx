@@ -9,16 +9,14 @@ import dort from "../../../public/img/ENGbrochure/4.svg";
 import { SlideIn } from "../../helpers/fade/SlideIn";
 import Navbar from "../navbar/navbar";
 import "../../index.css";
+import Header from "../header/header";
 
 export default function ENGBrochure() {
   return (
+    <>
+    <Header name="Brochure"/>
     <SlideIn delay={0.8} duration={0.3}>
-    <div className="bg-zinc-900">
-      <div >
-        <div className="navbar-container bg-zinc-950">
-          <Navbar />
-        </div>
-      </div>
+    <div className="bg-zinc-900" style={{transform: "translateY(-2rem)", paddingTop: "1rem"}}>
       <div className="flex justify-center mt-6">
           <button className="text-white font-bold py-2 px-4 rounded">
             <a
@@ -83,5 +81,6 @@ export default function ENGBrochure() {
       />
       </div>
     </SlideIn>
+    </>
   );
 }
