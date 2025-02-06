@@ -1,5 +1,5 @@
 
-import Mercedes from '../../../public/project/Mercedes.jpg';
+/*import Mercedes from '../../../public/project/Mercedes.jpg';*/
 import Shelf from '../../../public/project/Shelf.png';
 import BrainSeg from '../../../public/project/p5.png';
 import WBC from '../../../public/project/p1.jpeg';
@@ -10,12 +10,12 @@ import pcb from '../../../public/img/p6.png';
 
 
 const projectsData = [
-  {
+  /*{
     id: 1,
     name: 'Vehicle Tracking System',
     img: Mercedes,
     address: 'https://caglarcakmak.com.tr/',
-    modalAdress: ""  },
+    modalAdress: ""  },*/
   {
     id: 2,
     name: 'Market Shelf Product Detection',

@@ -25,7 +25,7 @@ const TrustedBy = () => {
                 ></div>
 
                 {/* İçerik Katmanı */}
-                <div className="relative z-10 flex flex-col items-center justify-center h-full p-4 md:translate-y-[+25px] [">
+                {/* <div className="relative z-10 flex flex-col items-center justify-center h-full p-4 md:translate-y-[+25px] [">
                    
                     <a
                         href="https://nefesogullari.com.tr"
@@ -49,7 +49,7 @@ const TrustedBy = () => {
                             alt="Nefesogulları Mercedes"
                         />
                     </a>
-                </div>
+                </div> */}
             </div>
         </SlideIn>
     );

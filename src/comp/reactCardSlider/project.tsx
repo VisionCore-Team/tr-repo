@@ -1,5 +1,5 @@
 
-import Mercedes from '../../../public/project/Mercedes.jpg';
+/*import Mercedes from '../../../public/project/Mercedes.jpg';*/
 import Shelf from '../../../public/project/Shelf.png';
 import BrainSeg from '../../../public/project/p5.png';
 import WBC from '../../../public/project/p1.jpeg';
@@ -10,13 +10,13 @@ import PCBB from '../../../public/project/p6.png';
 
 
 const projectsData = [
-  {
+ /* {
     id: 1,
     name: 'Vehicle Tracking System',
     description:"Our Real-Time Vehicle Detection System for Mercedes-Benz Authorized Services enhances operational efficiency and security within service centers. Utilizing advanced image processing and automated license plate recognition, the system provides instant monitoring and seamless vehicle tracking. Its intuitive interface simplifies data management, optimizing entry and exit control. By ensuring smooth data flow between departments, our solution improves operational processes and maximizes customer satisfaction." ,   img: Mercedes,
     address: 'https://caglarcakmak.com.tr/',
     modalAdress: ""  
-  },
+  },*/
   {
     id: 2,
     name: 'Market Shelf Product Detection',

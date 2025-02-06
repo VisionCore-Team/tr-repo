@@ -1,10 +1,10 @@
-import licenseplate_titleimg from '../../../public/project/car.png';
+/*import licenseplate_titleimg from '../../../public/project/car.png';*/
 import port_titleimg from '../../../public/project/port.jpeg';
 import health_titleimg from '../../../public/project/surgery.jpeg';
 import manufacture_titleimg from '../../../public/img/manufacturing.jpeg';
 
 
-import licenseplate_solutionimg1 from '../../../public/project/Mercedes2.png';
+/*import licenseplate_solutionimg1 from '../../../public/project/Mercedes2.png';*/
 import port_solutionimg1 from '../../../public/project/Security and Surveillance.jpeg';
 import port_solutionimg2 from '../../../public/project/Container and Asset Tracking.png';
 import port_solutionimg3 from '../../../public/project/License Plate and Container Tracking Systems.webp';
@@ -49,7 +49,7 @@ export interface SolutionsData {
 }
 
 const solutionsData: SolutionsData[] = [
-    {
+    /*{
         id: "licenseplate",
         title: "licenseplate_title",
         titleText: "licenseplate_titleText",
@@ -71,7 +71,7 @@ const solutionsData: SolutionsData[] = [
                 image: licenseplate_solutionimg1
             },
         ]
-    },
+    },*/
     {
         id: "portoperations",
         title: "port_title",
