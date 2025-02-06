@@ -5,8 +5,8 @@ import Core from './comp/core/Core.tsx';
 import Layout from './comp/layout/layout.tsx';
 import Team from './comp/team/team.tsx';
 import Solutions from './comp/solutions/Solutions.tsx';
-import Brochure from './comp/brochure/Brochure.tsx';
-import ENGBrochure  from './comp/brochure/ENGbrochure.tsx';
+// import Brochure from './comp/brochure/Brochure.tsx';
+// import ENGBrochure  from './comp/brochure/ENGbrochure.tsx';
 import Slider from './testing.tsx';
 import FouroFour from './404.tsx';
 function App() {
@@ -21,7 +21,7 @@ function App() {
           <Route path='/testing' element={< Slider/>} />
           <Route path='/team' element={< Team/>} />
           <Route path='/solutions/:category/:id' element = {<Solutions/>}/>
-          <Route path='/brochure' element = {<Brochure/>}/>
+          {/* <Route path='/brochure' element = {<Brochure/>}/> */}
         </Routes>
     </>
   );
