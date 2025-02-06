@@ -1,4 +1,8 @@
+import { useTranslation } from "react-i18next";
+
 function FouroFour() {
+  const { t } = useTranslation();
+
   return (
     <div style={{
       display: "flex",
@@ -9,9 +13,9 @@ function FouroFour() {
       flexDirection: "column"
     }}>
       <h1 className='text-gray-200 mb-1 sm:mt-0' style={{ fontWeight: "bold", fontFamily: "Jockey One", fontSize: "78px" }}>
-        404
+        503
       </h1>
-      <p className='text-gray-200 sm:mt-0'>We couldn't find the page you were looking for :(</p>
+      <p className='text-gray-200 sm:mt-0'>{t('error_503_text')}</p>
     </div>
   );
 }

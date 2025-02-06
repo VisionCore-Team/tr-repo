@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
@@ -28,6 +28,20 @@ const Team = () => {
      };*/
 
     const [selected, setSelected] = useState<TeamData | null>(null);
+    const selectedPersonRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (selectedPersonRef.current && !selectedPersonRef.current.contains(event.target as Node)) {
+                setSelected(null);
+            }
+        };
+        document.addEventListener('click', handleClickOutside);
+
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, []);
 
     return (
         <div>
@@ -36,8 +50,7 @@ const Team = () => {
                 <div className="allDataGrid-container">
                     <div className="allDataWrap">
                         {teamsData.map((person, key) => (
-                            <div key={key} className="teamMember cursor-pointer transition-transform duration-300 hover:scale-[110%]" onClick={() => setSelected(person)}>
-                                {JSON.stringify(console.log('person',person))}
+                            <div key={key} className="teamMember cursor-pointer transition-transform duration-300 hover:scale-[110%]" onClick={(e) => {e.stopPropagation(); setSelected(person)}}>
                                 <img src={person.image} alt={person.name} />
                                 <b>{person.name}</b>
                                 <p>{t(`${person.position}`)}</p>
@@ -47,7 +60,7 @@ const Team = () => {
                 </div>
             </div>
 
-            <div className="selectedPerson" style={{width: selected ? "300px" : "0px"}}>
+            <div className="selectedPerson" style={{width: selected ? "300px" : "0px"}} ref={selectedPersonRef}>
                 <div className="selectedPersonContainer">
                     <FaXmark className="closeButton" onClick={() => setSelected(null)}/>
                     {selected &&

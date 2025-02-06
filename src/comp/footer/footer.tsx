@@ -43,27 +43,27 @@ function Footer() {
                                     <a href="/solutions/byindustry/health" className="hover:text-white">{t('health')}</a>
                                 </li>
                                 <li className="mb-4">
-                                    <a href="/solutions/byindustry/manufacturin" className="hover:text-white">{t('manufacturing')}</a>
+                                    <a href="/solutions/byindustry/manufacturing" className="hover:text-white">{t('manufacturing')}</a>
                                 </li>
                                 <li className="mb-4">
                                     <a href="/solutions/byindustry/agriculture" className="hover:text-white">{t('agriculture')}</a>
                                 </li>
                                 <li className="mb-4">
-                                    <a href="/solutions/bysolution/marketshelf/" className="hover:text-white">Market Shelf Detection</a>
+                                    <a href="/*" className="hover:text-white">Market Shelf Detection</a>
                                 </li>
-                                <li className="mb-4">
+                                {/* <li className="mb-4">
                                     <a href="/solutions/bysolution/licenseplate/" className="hover:text-white">{t('car')}</a>
-                                </li>
+                                </li> */}
                             </ul>
                         </div>
                         <div>
                             <h2 className="mb-6 text-sm font-semibold text-gray-400 uppercase dark:text-white">Legal</h2>
                             <ul className="text-gray-500 dark:text-gray-400 font-medium">
                                 <li className="mb-4">
-                                    <a href="#" className="hover:text-white">{t('policy')}</a>
+                                    <a href="/*" className="hover:text-white">{t('policy')}</a>
                                 </li>
                                 <li>
-                                    <a href="#" className="hover:text-white">{t('terms')}</a>
+                                    <a href="/*" className="hover:text-white">{t('terms')}</a>
                                 </li>
                             </ul>
                         </div>

@@ -1,6 +1,7 @@
 import caglar from "../../../public/img/caglarcakmak.jpeg";
 import sirous from "../../../public/img/sirousbadali.jpeg";
 import veysel from "../../../public/img/veyselselimozturk.jpg";
+import malik from "../../../public/img/malikbatyr.jpg";
 
 export interface TeamData {
     id: number;
@@ -35,6 +36,14 @@ export interface TeamData {
         position: "veysel_position",
         location: "veysel_location",
         about: "veysel_about",
+    },
+    {
+        id: 4,
+        name: "Abdymalik Batyrkulov",
+        image: malik,
+        position: "malik_position",
+        location: "malik_location",
+        about: "malik_about",
     },
     // Daha fazla eleman ekleyin...
   ];

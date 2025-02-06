@@ -10,6 +10,7 @@ export interface TranslationContent {
 
 const translations: LanguageResources = {
     tr: {
+        error_503_text: "Bu sayfa geçici olarak kullanılamıyor",
         explore_insights: "En Son İçgörülerimizi Keşfedin",
         explore_insights_text: "Dijital dönüşümde güncel kalmak ve işletmenizin başarısını güçlendirmek için en yeni çözümlerimizi ve içgörülerimizi keşfedin. Visioncore’un inovatif çözümleri, sizi geleceğe hazırlamak için teknolojiyi iş süreçlerinize entegre eder ve sektörde bir adım önde olmanızı sağlar.",
         transforming_retail: "Gelişmiş Bilgisayarlı Görü Çözümleri ile Perakendeyi Dönüştürmek",
@@ -34,6 +35,7 @@ const translations: LanguageResources = {
         ml_vs_dl_text: "Makine öğrenimi ve derin öğrenme, yapay zeka içinde güçlü yetenekler sunar. Makine öğrenimi tahmin ve sınıflandırmada başarılı olurken, derin öğrenme karmaşık yapıları ve büyük veri setlerini işler. Visioncore, bu teknolojileri iş ihtiyaçlarına uygun hale getirir; müşteri analizi, öngörücü modelleme, görüntü ve dil işleme gibi alanlarda kullanır. Doğru yaklaşımı seçmek, işletmelerin yapay zeka yatırımlarından maksimum fayda sağlamasını garanti eder."    
     },
     en: {
+        error_503_text: "This page is temporarily unavailable",
         explore_insights: "Explore Our Latest Insights",
         transforming_retail: "Transforming Retail with Advanced Computer Vision Solutions",
         transforming_retail_text: "Computer Vision (CV) is revolutionizing the retail industry by enhancing both customer engagement and operational efficiency. Through facial recognition technologies, retailers can offer highly personalized promotions based on real-time insights into customer behaviors. Furthermore, our advanced CV applications optimize shelf management, ensuring accurate stock levels and timely replenishments to reduce costs and improve service. At Visioncore, we empower businesses to harness Computer Vision, providing cutting-edge solutions that create a distinct competitive advantage.",
