@@ -45,7 +45,7 @@ export default function Brochure() {
               file={brochureLang ? "/brochures/brochure_tr.pdf" : "/brochures/brochure_eng.pdf"}
               onLoadSuccess={onDocumentLoadSuccess}
             >
-              {Array.from(new Array(numPages), (el, index) => (
+              {Array.from(new Array(numPages), (_, index) => (
                 <div
                   key={`page_${index + 1}`}
                   style={{ display: pageNumber === index + 1 ? 'block' : 'none' }}
