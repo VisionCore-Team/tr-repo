@@ -4,8 +4,7 @@ import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
 
 import { FadeUp } from '../../../helpers/fade/FadeUp';
-import { SlideIn } from '../../../helpers/fade/SlideIn';
-import homeVideo from '../../../../public/video/siteBackgroundVideo.mp4'
+import homeVideo from '/video/siteBackgroundVideo.mp4'
 import './homeBanner_translate';
 import "./homeBanner.css";
 

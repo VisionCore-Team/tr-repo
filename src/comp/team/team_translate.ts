@@ -20,7 +20,10 @@ interface Translation {
         veysel_about: "Teknoloji ve programlamaya derin bir tutkuyla bağlı Yazılım Geliştiriciyim. Özellikle React.js üzerinde yoğunlaşarak web geliştirmeye odaklandım. Akademik çalışmalarımın dışında, bu alandaki bilgi ve becerilerimi sürekli olarak genişletmeye çalışıyor, yeni teknolojiler ve çerçevelerle deneyler yaparak sektördeki gelişmeleri takip ediyorum.",
         malik_position: "Önyüz Geliştirici",
         malik_location: "İstanbul, Türkiye",
-        malik_about: "Web siteleri ve web uygulamaları için sezgisel ve ilgi çekici UI / UX oluşturma tutkusu olan motive bir Fullstack Web Geliştiricisiyim. JavaScript, MERN yığını, Redux, jQuery, RestAPI, Postman ve Telegram bot konularında uzmanım, yenilikçi projeler geliştirmekten ve becerilerimi sürekli geliştirmekten keyif alıyorum. Yazılım geliştirme alanındaki uzmanlığımı genişletirken dinamik ekiplere katkıda bulunmaya istekliyim."
+        malik_about: "Web siteleri ve web uygulamaları için sezgisel ve ilgi çekici UI / UX oluşturma tutkusu olan motive bir Fullstack Web Geliştiricisiyim. JavaScript, MERN yığını, Redux, jQuery, RestAPI, Postman ve Telegram bot konularında uzmanım, yenilikçi projeler geliştirmekten ve becerilerimi sürekli geliştirmekten keyif alıyorum. Yazılım geliştirme alanındaki uzmanlığımı genişletirken dinamik ekiplere katkıda bulunmaya istekliyim.",
+        harun_position: "Full Stack Developer",
+        harun_location: "Ankara, Türkiye",
+        harun_about: "Ege Üniversitesi Bilgisayar Programcılığı Bölümü'nden başarıyla mezun oldum. Aynı kurumda proaktif olarak staj yaptım. Becerilerimi yazılım sektöründe uygulamaya istekli, motivasyonu yüksek, hızlı öğrenen ve detay odaklıyım. Mükemmel iletişim becerilerine sahip güçlü bir takım oyuncusuyum. Sürekli öğrenmeye ve profesyonel büyümeye kararlıyım."
       },
     en: {
         meetTeam: "Meet the Team",
@@ -35,7 +38,10 @@ interface Translation {
         veysel_about: "With a deep passion for technology and programming, I have immersed myself in the world of web development, focusing particularly on React.js. Beyond my academic pursuits, I actively seek opportunities to expand my knowledge and skills in this field, constantly experimenting with new technologies and frameworks to stay at the forefront of industry trends.",
         malik_position: "Frontend Developer",
         malik_location: "Istanbul, Turkey",
-        malik_about: "I am a motivated Fullstack Web Developer with a passion for crafting intuitive and engaging UI/UX for websites and web applications. Proficient in the JavaScript, MERN stack, Redux, jQuery, RestAPI, Postman and Telegram bot I enjoy building innovative projects and continuously improving my skills. I am eager to contribute to dynamic teams while expanding my expertise in software development."
+        malik_about: "I am a motivated Fullstack Web Developer with a passion for crafting intuitive and engaging UI/UX for websites and web applications. Proficient in the JavaScript, MERN stack, Redux, jQuery, RestAPI, Postman and Telegram bot I enjoy building innovative projects and continuously improving my skills. I am eager to contribute to dynamic teams while expanding my expertise in software development.",
+        harun_position: "Full Stack Developer",
+        harun_location: "Ankara, Turkey",
+        harun_about: "I'm successfully graduated from the Computer Programming Department at Ege University. Proactively completed an internship at the same institution. Eager to apply my skills in the software industry. I'm highly motivated, a quick learner, and detail-oriented and a strong team player with excellent communication skills. I'm committed to continuous learning and professional growth."
       }
 };
 

@@ -8,6 +8,7 @@
 *{
     margin: 0;
     padding: 0;
+    smooth-behavior: smooth;
 }
 
 :root {
@@ -15,6 +16,10 @@
     --bg-color: #0D1225;
     font-family: 'Montserrat';
 
+}
+
+a{
+    cursor: pointer;
 }
 
 body {
@@ -75,3 +80,15 @@ text-align: center; /* Metinlerin ortalanması */
     justify-content: center; /* İçeriği dikeyde merkeze hizalar */
   }
   
+  ::-webkit-scrollbar {
+    width: 3px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: none;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: white;
+    cursor: pointer;
+  }

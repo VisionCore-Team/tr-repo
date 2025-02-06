@@ -1,29 +1,29 @@
-/*import licenseplate_titleimg from '../../../public/project/car.png';*/
-import port_titleimg from '../../../public/project/port.jpeg';
-import health_titleimg from '../../../public/project/surgery.jpeg';
-import manufacture_titleimg from '../../../public/img/manufacturing.jpeg';
+/*import licenseplate_titleimg from '/project/car.png';*/
+import port_titleimg from '/project/port.jpeg';
+import health_titleimg from '/project/surgery.jpeg';
+import manufacture_titleimg from '/img/manufacturing.jpeg';
 
 
-/*import licenseplate_solutionimg1 from '../../../public/project/Mercedes2.png';*/
-import port_solutionimg1 from '../../../public/project/Security and Surveillance.jpeg';
-import port_solutionimg2 from '../../../public/project/Container and Asset Tracking.png';
-import port_solutionimg3 from '../../../public/project/License Plate and Container Tracking Systems.webp';
-import port_solutionimg4 from '../../../public/project/Container Damage Detection.jpeg';
-import port_solutionimg5 from '../../../public/project/HAZARDOUS MATERIAL IDENTIFICATION.webp';
+/*import licenseplate_solutionimg1 from '/project/Mercedes2.png';*/
+import port_solutionimg1 from '/project/Security and Surveillance.jpeg';
+import port_solutionimg2 from '/project/Container and Asset Tracking.png';
+import port_solutionimg3 from '/project/License Plate and Container Tracking Systems.webp';
+import port_solutionimg4 from '/project/Container Damage Detection.jpeg';
+import port_solutionimg5 from '/project/HAZARDOUS MATERIAL IDENTIFICATION.webp';
 
-import health_solutionimg1 from '../../../public/project/p5.png';
-import health_solutionimg2 from '../../../public/project/p1.jpeg';
-import health_solutionimg3 from '../../../public/project/p2.jpeg';
-import health_solutionimg4 from '../../../public/project/p3.jpeg';
+import health_solutionimg1 from '/project/p5.png';
+import health_solutionimg2 from '/project/p1.jpeg';
+import health_solutionimg3 from '/project/p2.jpeg';
+import health_solutionimg4 from '/project/p3.jpeg';
 
-import manufacture_solutionimg1 from '../../../public/project/heatmap.webp';
-import manufacture_solutionimg2 from '../../../public/project/p6.png';
-import manufacture_solutionimg3 from '../../../public/project/anomaly.png';
-import manufacture_solutionimg4 from '../../../public/img/pree.webp';
-import manufacture_solutionimg5 from '../../../public/project/helmet.webp';
+import manufacture_solutionimg1 from '/project/heatmap.webp';
+import manufacture_solutionimg2 from '/project/p6.png';
+import manufacture_solutionimg3 from '/project/anomaly.png';
+import manufacture_solutionimg4 from '/img/pree.webp';
+import manufacture_solutionimg5 from '/project/helmet.webp';
 
-import agriculture_titleimg from '../../../public/project/agriculture.jpeg';
-import agriculture_solutionimg1 from '../../../public/project/sprey.png';
+import agriculture_titleimg from '/project/agriculture.jpeg';
+import agriculture_solutionimg1 from '/project/sprey.png';
 
 export interface ProblemItem {
     title?: string;

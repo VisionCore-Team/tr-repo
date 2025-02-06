@@ -1,0 +1,24 @@
+@media(max-width: 700px){
+    .container{
+        width: 80vw;
+    }
+    .container h1{
+        font-size: 1.7rem;
+    }
+    .container h2{
+        font-size: 1.5rem;
+    }
+    .container h3{
+        font-size: 1.4rem;
+    }
+    .container h4{
+        font-size: 1.3rem;
+    }
+    .container h5{
+        font-size: 1.1rem;
+    }
+    .container p{
+        font-size: 13px;
+        line-height: 20px;
+    }
+}

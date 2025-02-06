@@ -1,8 +1,8 @@
 "use client";
 
-import Navbar from "../navbar/navbar";
 import { SlideIn } from "../../helpers/fade/SlideIn";
 import Header from "../header/header";
+import './ethicalValues.css';
 
 export default function EthicalValues() {
   return (
@@ -10,7 +10,7 @@ export default function EthicalValues() {
       <Header name="Ethical Values"/>
       <div className="container">
 
-        <div className="bg-black bg-opacity-70 w-full p-6 rounded">
+        <div className="ethical bg-black bg-opacity-70 w-full p-6 rounded">
           <div className="flex flex-col lg:flex-row mb-24">
             <SlideIn delay={0.2} duration={0.8}>
               <div className="ml-0 lg:ml-6 lg:my-auto"> {/* Yalnızca büyük ekranlarda sol taraftan boşluk ekleyin */}
@@ -18,7 +18,7 @@ export default function EthicalValues() {
                   We Know That Artificial Intelligence Is For Human and We Develop
                   Artificial Intelligence For The Benefit Of Humanity
                 </h3>
-                <p style={{ fontSize: "20px" }} className="font-light text-lg text-sky-200">
+                <p className="font-light text-lg text-sky-200">
                   From drivers to autonomous vehicles; from surgeons to surgical
                   robots, from pilots to autonomous aircraft; we are experiencing a
                   transformation from a point where humans dominate technology to a

@@ -1,13 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-
 import { SlideIn } from "../../helpers/fade/SlideIn";
-import Navbar from "../navbar/navbar";
-import Footer from "../footer/footer";
-
 import solutionsData from "./solutionsData";
 import './solutions_translate';
 import "../../index.css";
+import "./solutions.css";
 
 
 export default function Solutions() {
@@ -25,31 +22,23 @@ export default function Solutions() {
               backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${info?.titleImage})`,
               backgroundPosition: "center",
               backgroundSize: "cover",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              gap: 0,
               width: "100%",
-              height: "500px", // İhtiyacınıza göre ayarlayın
+              height: "500px",
             }}
           >
             <h1
               className="sm: text-center text-5xl"
-              style={{ fontSize: 45, fontWeight: 600 }}
+              style={{ fontWeight: 600, maxWidth: "1300px", width: "80%" }}
             >
               {t(`${info?.title}`)}
             </h1>
-
-            <br />
-            <p className="font-semibold mx-auto text-center text-white max-w-screen-md p-4 mt-4">
+            <p className="font-semibold mx-auto text-center text-white max-w-screen-md p-4 mt-1">
               {t(`${info?.titleText}`)}
             </p>
-            <div className="flex justify-center mt-6">
-              <button className="text-white font-bold py-2 px-4 rounded">
-                <a
-                  href="tel:+31614946511"
-                  className="inline-block duration-500 bg-emerald-600 hover:bg-gray-800 text-white font-b py-3 px-6 rounded"
-                >
-                  {t('speakAI')}
-                </a>
-              </button>
-            </div>
           </div>
         </div>
         {/* Project Sections */}
@@ -60,10 +49,10 @@ export default function Solutions() {
               <h1 className="text-4xl text-gray-100 mb-7 font-bold">
                 {t(`${info?.paragraphTitle}`)}
               </h1>
-              <h3 className="text-lg text-gray-400 mb-7">
+              <p className="text-lg text-gray-400 mb-7">
                 {t(`${info?.paragraph}`)}
-              </h3>
-              <h2 className="text-4xl text-gray-100 mb-7 font-bold">
+              </p>
+              <h2 className="text-4xl text-gray-100 mb-3 font-bold">
                 {t(`${info?.solutionTitle}`)}
               </h2>
             </div>
@@ -76,15 +65,15 @@ export default function Solutions() {
           info?.solutions.map(el => (
             <div className="bg-[#0F0F11] flex lg:flex-row flex-col justify-between lg:mx-36 m-5 rounded-xl border-[1px] border-gray-500 shadow-md shadow-black">
               <div className="m-6">
-                <h1 className="text-white font-semibold text-2xl">
+                <h4 className="text-white font-semibold text-2xl">
                   {t(`${el.title}`)}
-                </h1>
+                </h4>
                 {
                   el.problem && (
                     <>
-                      <h3 className="text-[#047857] font-semibold text-xl my-2">
+                      <h5 className="text-[#047857] font-semibold text-xl my-2">
                       {t('problem')}:
-                      </h3>
+                      </h5>
                       {el.problem?.map(infoEl => (
                         <div className="text-gray-400 mb-2">
                           {infoEl?.title && (
@@ -98,9 +87,9 @@ export default function Solutions() {
                     </>
                   )
                 }
-                <h3 className="text-[#047857] font-semibold text-xl my-2">
+                <h5 className="text-[#047857] font-semibold text-xl my-2">
                 {t('solution')}:
-                </h3>
+                </h5>
                 {el.solution?.map(infoEl => (
                   <div className="text-gray-400 mb-2">
                     {infoEl?.title && (
@@ -108,7 +97,10 @@ export default function Solutions() {
                         {t(`${infoEl?.title}`)}: {' '}
                       </span>
                     )}
+                    <p>
+
                     {t(`${infoEl?.text}`)}
+                    </p>
                   </div>
                 ))}
                 

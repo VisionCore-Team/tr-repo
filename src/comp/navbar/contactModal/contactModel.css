@@ -1,0 +1,77 @@
+@media (max-width: 1330px) {
+    .contactModal .bg-white {
+        width: 90vw;
+    }
+
+    .contactModal svg{
+        display: none;
+    }
+    .contactModal .p-6 .flex-col button svg{
+        display: block;
+    }
+
+    .contactModal .text-3xl {
+        font-size: 20px;
+    }
+
+    .contactModal .text-xl,
+    .contactModal .text-lg,
+    .contactModal .text-black,
+    .contactModal input {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 750px) {
+    .contactModal .bg-white{
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        width: 100vw;
+        height: 100dvh;
+        overflow-y: scroll;
+    }
+    .contactModal .bg-white .p-6,
+    .contactModal .bg-white .p-6 {
+        width: 100%;
+        padding: 0;
+    }
+
+    .contactModal .text-3xl {
+        font-size: 17px;
+        margin: 0;
+
+    }
+
+    .contactModal .p-6 .flex-col{
+        gap: 0;
+        margin: 0;
+
+    }
+
+    .contactModal .text-xl,
+    .contactModal .text-lg,
+    .contactModal .text-black,
+    .contactModal .text-red-500,
+    .contactModal input,
+    .contactModal button{
+        font-size: 11px;
+        margin: 0;
+    }
+
+    .contactModal button{
+        width: 100%;
+    }
+    .contactModal .p-6 .flex-col button{
+        font-size: 22px;
+    }
+    .contactModal form{
+        border: none;
+        margin-top: 1rem;
+    }
+    .contactModal .justify-between:nth-last-child(1){
+        margin: 0;
+        flex-direction: column;
+        gap: .5rem;
+    }
+}

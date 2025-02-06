@@ -1,13 +1,7 @@
 import { useState, useEffect, useRef } from "react";
-import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
-import SafariTabs from "./safaritabs";
 import teamsData, { TeamData } from './team_data';
-import Navbar from "../navbar/navbar";
-import Footer from "../footer/footer";
-import TeamMember from "./teamMember";
-import bg from '../../../public//bg/cardbg.jpg'
 import Header from "../header/header";
 import './safaritabs.css'
 import { FaXmark } from "react-icons/fa6";
@@ -60,7 +54,7 @@ const Team = () => {
                 </div>
             </div>
 
-            <div className="selectedPerson" style={{width: selected ? "300px" : "0px"}} ref={selectedPersonRef}>
+            <div className="selectedPerson" style={{width: selected ? "350px" : "0px"}} ref={selectedPersonRef}>
                 <div className="selectedPersonContainer">
                     <FaXmark className="closeButton" onClick={() => setSelected(null)}/>
                     {selected &&

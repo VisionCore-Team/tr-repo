@@ -1,0 +1,28 @@
+@media(max-width: 700px){
+    .ethical{
+        width: 80vw;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .ethical h1{
+        font-size: 1.7rem;
+    }
+    .ethical h2{
+        font-size: 1.5rem;
+    }
+    .ethical h3{
+        font-size: 1.4rem;
+        line-height: 1.6rem;
+    }
+    .ethical h4{
+        font-size: 1.3rem;
+    }
+    .ethical h5{
+        font-size: 1.1rem;
+    }
+    .ethical p{
+        font-size: 13px;
+        line-height: 20px;
+    }
+}

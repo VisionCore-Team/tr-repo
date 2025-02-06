@@ -1,13 +1,12 @@
 "use client";
 
-import Navbar from "../navbar/navbar";
-import image1 from "../../../public/img/classification.webp";
-import image2 from "../../../public/img/object_detection.webp";
-import image3 from "../../../public/img/semantic.webp";
-import image4 from "../../../public/img/instance.webp";
-import contactBackground from "../../../public/bg/islemci.jpeg";
+import image1 from "/img/classification.webp";
+import image2 from "/img/object_detection.webp";
+import image3 from "/img/semantic.webp";
+import image4 from "/img/instance.webp";
 import { SlideIn } from "../../helpers/fade/SlideIn";
 import Header from "../header/header";
+import "./core.css";
 
 const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
   e.preventDefault();

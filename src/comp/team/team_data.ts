@@ -1,7 +1,8 @@
-import caglar from "../../../public/img/caglarcakmak.jpeg";
-import sirous from "../../../public/img/sirousbadali.jpeg";
-import veysel from "../../../public/img/veyselselimozturk.jpg";
-import malik from "../../../public/img/malikbatyr.jpg";
+import caglar from "/img/caglarcakmak.jpeg";
+import sirous from "/img/sirousbadali.jpeg";
+import veysel from "/img/veyselselimozturk.jpg";
+import malik from "/img/malikbatyr.jpg";
+import harun from "/img/harunbulbul.jpg";
 
 export interface TeamData {
     id: number;
@@ -44,6 +45,14 @@ export interface TeamData {
         position: "malik_position",
         location: "malik_location",
         about: "malik_about",
+    },
+    {
+        id: 5,
+        name: "Harun Bülbül",
+        image: harun,
+        position: "harun_position",
+        location: "harun_location",
+        about: "harun_about",
     },
     // Daha fazla eleman ekleyin...
   ];

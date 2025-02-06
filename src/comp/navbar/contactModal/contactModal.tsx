@@ -14,6 +14,7 @@ import { useStateContext } from '../../../context/StateContext';
 import { doctypeList } from './uploadDocFormatsList';
 import { Spin, message } from 'antd';
 import './contactModal_translate';
+import './contactModel.css';  
 
 interface FormValues {
   fullName: string;
@@ -150,11 +151,11 @@ const ContactModal: React.FC = () => {
   };
 
   return (
-    <div style={{zIndex: 5000}} className="absolute top-[400px] inset-0 flex justify-center items-center z-5000">
+    <div style={{zIndex: 5000}} className="contactModal absolute top-[400px] inset-0 flex justify-center items-center z-5000">
       <Spin spinning={loading}>
         <div ref={modalRef} className="bg-white w-[70vw] rounded-lg shadow-lg flex">
           {/* Left Section: Text and Contact Info */}
-          <div className="w-1/2 p-6">
+          <div className="w-1/3 p-6">
             {/* Modal Header */}
             <div className="flex flex-col mb-4">
               <button
@@ -172,10 +173,6 @@ const ContactModal: React.FC = () => {
             <div className="flex flex-col justify-between h-[60%]">
               {/* Contact Info */}
               <div className="">
-                <div className="flex items-center gap-2 text-lg text-gray-700">
-                  <TiLocation size={30} />
-                  <p>Deventer, NL</p>
-                </div>
                 <div className="flex items-center gap-2 text-lg text-gray-700 mt-2">
                   <MdContactPhone size={30} />
                   <p>{t('callText')}: +31 6 14946511</p>
@@ -185,17 +182,11 @@ const ContactModal: React.FC = () => {
                   <p>support@visioncore.com.tr</p>
                 </div>
               </div>
-
-              {/* Social Media */}
-
-              <div className="flex gap-5 text-gray-700 text-3xl">
-                <Link to="https://www.linkedin.com/company/visioncore" className='cursor-pointer transform transition-transform duration-200 hover:scale-110'><FaLinkedin /></Link>
-              </div>
             </div>
           </div>
 
           {/* Right Section: Form */}
-          <div className="w-1/2 p-6 border-l">
+          <div className="w-2/3 p-6 border-l">
             <form onSubmit={formik.handleSubmit} className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <label className="block">
@@ -295,7 +286,7 @@ const ContactModal: React.FC = () => {
                   <div className="text-red-500 text-sm mt-1">{formik.errors.file}</div>
                 )}
               </label>
-              <div className="flex items-center gap-5 space-x-4 mt-4">
+              <div className="flex items-center justify-between space-x-4 mt-4">
                 <ReCAPTCHA
                   sitekey={siteKey}
                   onChange={handleRecaptchaChange}

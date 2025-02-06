@@ -1,8 +1,8 @@
 "use client";
 
-import Navbar from "../navbar/navbar";
 import { FadeUp } from "../../helpers/fade/FadeUp";
 import Header from "../header/header";
+import './blog.css';	
 
 export default function Blog() {
   return (

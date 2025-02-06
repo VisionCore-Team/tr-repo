@@ -88,6 +88,15 @@ background-color: transparent; /* Цвет трека */
   padding: 2rem;
 }
 
+
+
+.selectedPerson .selectedPersonContainer img{
+  width: 70%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 .selectedPerson .selectedPersonContainer .closeButton{
   font-size: 20px;
   align-self: flex-end;
