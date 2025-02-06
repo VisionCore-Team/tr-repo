@@ -26,7 +26,7 @@ const VideoSlider: React.FC = () => {
     infinite: true,
     speed: 500,
     arrows: false,
-    slidesToShow: 3, // Büyük ekranlarda gösterilecek video sayısı
+    slidesToShow: 2, // Büyük ekranlarda gösterilecek video sayısı
     slidesToScroll: 1,
     autoplay: true, // Otomatik kaydırma
     autoplaySpeed: 3000, // 3 saniye

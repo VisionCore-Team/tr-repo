@@ -17,7 +17,7 @@ export default function Solutions() {
 
   return (
     <SlideIn>
-      <div className="health-page min-h-screen bg-neutral-800">
+      <div className="health-page pb-5 min-h-screen bg-gray-900">
         <div>
           <div
             className="home-container h-24"

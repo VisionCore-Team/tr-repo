@@ -11,6 +11,7 @@ import bg from '../../../public//bg/cardbg.jpg'
 import Header from "../header/header";
 import './safaritabs.css'
 import { FaXmark } from "react-icons/fa6";
+import './team_translate';
 
 
 const Team = () => {
@@ -35,17 +36,18 @@ const Team = () => {
                 <div className="allDataGrid-container">
                     <div className="allDataWrap">
                         {teamsData.map((person, key) => (
-                            <div key={key} className="teamMember" onClick={() => setSelected(person)}>
+                            <div key={key} className="teamMember cursor-pointer transition-transform duration-300 hover:scale-[110%]" onClick={() => setSelected(person)}>
+                                {JSON.stringify(console.log('person',person))}
                                 <img src={person.image} alt={person.name} />
                                 <b>{person.name}</b>
-                                <p>{t(`${person?.position}`)}</p>
+                                <p>{t(`${person.position}`)}</p>
                             </div>
                         ))}
                     </div>
                 </div>
             </div>
 
-            <div className="selectedPerson" style={{width: selected ? "250px" : "0px"}}>
+            <div className="selectedPerson" style={{width: selected ? "300px" : "0px"}}>
                 <div className="selectedPersonContainer">
                     <FaXmark className="closeButton" onClick={() => setSelected(null)}/>
                     {selected &&

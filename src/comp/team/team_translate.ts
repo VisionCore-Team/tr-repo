@@ -8,6 +8,7 @@ interface Translation {
 
   const translations: Translation = {
     tr: {
+        meetTeam: "Takımımız",
         caglar_position: "Kurucu, AI Geliştirici",
         caglar_location: "Deventer, Hollanda / Izmir, Türkiye",
         caglar_about: "Yapay zeka modelleri geliştirme ve dağıtma konusunda güçlü bir geçmişe sahip, tutkulu ve yenilikçi bir Yazılım Geliştiriciyim. Uzmanlık alanım makine öğrenimi, derin öğrenme ve bilgisayarla görme üzerinedir. Bunun Yanı sıra React JS ve SQL konusunda yetkinim.",
@@ -19,6 +20,7 @@ interface Translation {
         veysel_about: "Teknoloji ve programlamaya derin bir tutkuyla bağlı Yazılım Geliştiriciyim. Özellikle React.js üzerinde yoğunlaşarak web geliştirmeye odaklandım. Akademik çalışmalarımın dışında, bu alandaki bilgi ve becerilerimi sürekli olarak genişletmeye çalışıyor, yeni teknolojiler ve çerçevelerle deneyler yaparak sektördeki gelişmeleri takip ediyorum."
     },
     en: {
+        meetTeam: "Meet the Team",
         caglar_position: "AI Developer",
         caglar_location: "Deventer, Netherlands / Izmir, Turkey",
         caglar_about: "I am a passionate and innovative Software Developer with a strong background in developing and deploying artificial intelligence models. My areas of expertise include machine learning, deep learning, and computer vision. Additionally, I am proficient in React JS and SQL.",

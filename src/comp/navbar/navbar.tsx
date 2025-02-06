@@ -57,7 +57,7 @@ const Navbar: React.FC = () => {
       subgroup: [
         {
           bySolutions: [
-            { id: 1, text: t('car'), to: "/solutions/bysolution/licenseplate" },
+            // { id: 1, text: t('car'), to: "/solutions/bysolution/licenseplate" },
             { id: 2, text: t('port'), to: "/solutions/bysolution/portoperations" },
           ],
         },
@@ -86,7 +86,7 @@ const Navbar: React.FC = () => {
       subgroup: [
         // { id: 1, text: t('tech_stack'), to: "/skills" },
         { id: 2, text: t('blog'), to: "/blog" },
-        { id: 3, text: t('brochure'), to: "/brochure/tr" },
+        { id: 3, text: t('brochure'), to: "/brochure" },
         // { id: 4, text: t('case_study'), to: "/caseStudy" },
         // { id: 5, text: t('webinars'), to: "/webinars" },
       ]
