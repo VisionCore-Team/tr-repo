@@ -45,7 +45,7 @@ export default function Brochure() {
             {brochureLang ? t("english") : t("turkish")}
           </button>
 
-          <div className="pdf-container">
+          <div className="pdf-container ">
             <Document
               key={brochureLang ? "tr" : "en"}
               file={brochureLang ? brochureTr : brochureEn}

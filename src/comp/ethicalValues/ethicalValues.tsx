@@ -20,7 +20,7 @@ export default function EthicalValues() {
                 <p className="font-light text-lg text-sky-200">{t('paragraph1_text')}</p>
               </div>
               <h3 className="text-left text-4xl font-semibold mt-5 text-white mb-4 lg:m-6">{t('paragraph2_title')}</h3>
-              <p className="font-light text-[20px] text-sky-200 m-6 whitespace-pre-line">{t('paragraph2_text')}</p>
+              <p className="font-light text-[20px] text-sky-200 lg:m-6 whitespace-pre-line">{t('paragraph2_text')}</p>
             </SlideIn>
           </div>
         </div>
