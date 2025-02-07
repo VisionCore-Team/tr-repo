@@ -13,7 +13,7 @@
 
 /* Metin kısmı */
 .additional-text {
-    width: 70%; /* Metnin toplam genişlikte kapladığı oran */
+    width: 100%; /* Metnin toplam genişlikte kapladığı oran */
     color: white; /* Yazının rengini beyaz yaptık */
     font-size: 22px; /* Yazı boyutunu 22px yaptık */
     font-family: 'EuclidCircularB', sans-serif; /* Chart ile aynı fontu kullandık */

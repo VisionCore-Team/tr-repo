@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import EthicalValues from './comp/ethicalValues/ethicalValues.tsx';
-import Blog from './comp/blog/blog.tsx'
-import Core from './comp/core/Core.tsx';
+import Blog from './comp/blog/blog.tsx';
+import Core from './comp/core/corePage.tsx';
 import Layout from './comp/layout/layout.tsx';
 import Team from './comp/team/team.tsx';
 import Solutions from './comp/solutions/Solutions.tsx';
