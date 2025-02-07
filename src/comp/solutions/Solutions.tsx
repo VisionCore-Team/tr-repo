@@ -52,8 +52,8 @@ export default function Solutions() {
         {/* Project Sections */}
 
         {info?.solutions.map((el, index) => (
-          <div className="bg-[#0F0F11] flex lg:flex-row flex-col justify-between lg:mx-36 m-5 rounded-xl border-[1px] border-gray-500 shadow-md shadow-black">
-            <div className="m-6" key={index}>
+          <div key={index} className="bg-[#0F0F11] flex lg:flex-row flex-col justify-between lg:mx-36 m-5 rounded-xl border-[1px] border-gray-500 shadow-md shadow-black">
+            <div className="m-6">
               <h4 className="text-white font-semibold text-2xl">
                 {t(`${el.title}`)}
               </h4>

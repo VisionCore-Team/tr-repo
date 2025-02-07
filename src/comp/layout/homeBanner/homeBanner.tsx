@@ -23,6 +23,12 @@ function HomeBanner() {
     setSequences(updatedSequences as string[]);
   };
   useEffect(() => {
+    const videoElement = document.querySelector("video");
+    if (videoElement) {
+      videoElement.load();
+    }
+  }, []);
+  useEffect(() => {
     updateSequences();
     i18next.on("languageChanged", updateSequences);
     return () => {
@@ -40,8 +46,9 @@ function HomeBanner() {
           autoPlay
           loop
           muted
+          playsInline
           disablePictureInPicture
-          preload="auto"
+          preload="metaData"
           className="mainSlider"
         />
         <div className="gradient" />
