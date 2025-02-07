@@ -74,3 +74,9 @@
 .homeBanner-container .homeSlider .blurArea {
   padding: 15% 5%;
 }
+
+@media (max-width: 768px) {
+  .homeBanner-container .homeSlider .blurArea {
+    padding: 30% 5%;
+  }
+}

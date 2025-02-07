@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import i18next from "i18next";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router";
 import Hamburger from "./Hamburger";
 
 import logo from "../../../public/img/Ç.svg";
@@ -40,11 +40,16 @@ interface NavItem {
 
 const Navbar: React.FC = () => {
   const { t } = useTranslation();
+  const location = useLocation();
   const nav = useNavigate();
   const [menu, setMenu] = useState(false);
   const [activeDropDown, setActiveDropDown] = useState(-1);
 
   const { showContactModal, setShowContactModal } = useStateContext();
+
+  useEffect(() => {
+    setMenu(false);
+  }, [location.pathname]); 
 
   // Arrays containing navigation items
 
@@ -282,6 +287,7 @@ const Navbar: React.FC = () => {
           </div>
         </SlideIn>
         <Hamburger
+          menu={menu}
           status={(status: boolean | ((prevState: boolean) => boolean)) =>
             setMenu(status)
           }

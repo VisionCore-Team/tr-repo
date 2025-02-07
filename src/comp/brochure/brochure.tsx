@@ -69,7 +69,7 @@ export default function Brochure() {
           </div>
 
           <div className="flex flex-col items-center gap-3">
-            <div className="flex items-center gap-2">
+            <div className="pdfbuttons flex items-center gap-2">
               <button
                 className="bg-white text-black py-2 px-4 rounded-lg hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 onClick={goToFirstPage}
@@ -103,7 +103,7 @@ export default function Brochure() {
               </button>
             </div>
 
-            <div className="flex items-center gap-2">
+            <div className="pdfGoButtons flex items-center gap-2">
               <input
                 type="number"
                 value={pageNumber}

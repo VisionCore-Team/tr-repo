@@ -3,10 +3,11 @@ import './navbar.css'
 
 interface HamburgerProps {
   status: (menu: boolean) => void;
+  menu: boolean;
 }
 
-function Hamburger({ status }: HamburgerProps) {
-  const [menu, setMenu] = useState(false);
+function Hamburger({ status, menu: parentMenu }: HamburgerProps) {
+  const [menu, setMenu] = useState(parentMenu);
   const [loading, setLoading] = useState(false);
 
   const hamburger = useRef<HTMLDivElement>(null);
@@ -23,6 +24,32 @@ function Hamburger({ status }: HamburgerProps) {
       }, 700);
     }
   }, [loading])
+
+  useEffect(() => {
+    if (parentMenu !== menu) {
+      setMenu(parentMenu);
+      if (!parentMenu) {
+        if (menuspan1.current && menuspan2.current && menuspan3.current && hamburger.current) {
+          menuspan1.current.style.rotate = menuspan3.current.style.rotate = "0deg"
+        }
+        setTimeout(() => {
+          if (menuspan1.current && menuspan2.current && menuspan3.current && hamburger.current) {
+            menuspan1.current.style.transform = "translateY(0)";
+            menuspan3.current.style.transform = "translateY(0)";
+            menuspan2.current.style.width = "30px";
+            menuspan2.current.style.transform = "translateX(0)";
+            hamburger.current.style.gap = ".5rem";
+          }
+          setTimeout(() => {
+            if (menuspan1.current && menuspan2.current && menuspan3.current && hamburger.current) {
+              menuspan1.current.style.width = "15px";
+              menuspan3.current.style.width = "20px";
+            }
+          }, 300);
+        }, 300);
+      }
+    }
+  }, [parentMenu]);
 
   const handleMenu = () => {
     if (!loading) {
