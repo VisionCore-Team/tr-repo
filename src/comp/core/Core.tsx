@@ -6,7 +6,7 @@ import image3 from "/img/semantic.webp";
 import image4 from "/img/instance.webp";
 import { SlideIn } from "../../helpers/fade/SlideIn";
 import Header from "../header/header";
-import "./core.css";
+import "./Core.css";
 
 const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
   e.preventDefault();
