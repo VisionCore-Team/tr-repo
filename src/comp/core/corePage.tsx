@@ -5,7 +5,7 @@ import { SlideIn } from "../../helpers/fade/SlideIn";
 import Header from "../header/header";
 import { coreData, coreLabelData } from "./core_data";
 import "./core_translate";
-import "./core.css";
+import "./Core.css";
 
 const handleClick = (
   e: React.MouseEvent<HTMLAnchorElement>,
