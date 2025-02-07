@@ -4,7 +4,7 @@ import { SlideIn } from "../../helpers/fade/SlideIn";
 import solutionsData from "./solutionsData";
 import './solutions_translate';
 import "../../index.css";
-import "./solutions.css";
+import "./Solutions.css";
 
 
 export default function Solutions() {
