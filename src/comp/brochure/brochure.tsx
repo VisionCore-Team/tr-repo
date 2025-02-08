@@ -39,7 +39,7 @@ export default function Brochure() {
       <SlideIn delay={0.8} duration={0.3}>
         <div className="flex items-center flex-col py-5 gap-5">
           <button
-            className="bg-white text-black py-2 px-4 rounded-lg hover:bg-gray-100 active:bg-black active:text-white transition-colors"
+            className="langButton bg-white text-black py-2 px-4 rounded-lg hover:bg-gray-100 active:bg-black active:text-white transition-colors"
             onClick={() => setBrochureLang(!brochureLang)}
           >
             {brochureLang ? t("english") : t("turkish")}

@@ -1,18 +1,18 @@
 @media (max-width: 700px) {
     .health-page h1{
-        font-size: 1.7rem;
-    }
-    .health-page h2{
         font-size: 1.5rem;
     }
-    .health-page h4{
+    .health-page h2{
         font-size: 1.3rem;
+    }
+    .health-page h4{
+        font-size: 1.2rem;
     }
     .health-page h5{
         font-size: 1.1rem;
     }
     .health-page p{
-        font-size: 12px;
+        font-size: 16px;
         line-height: 20px;
     }
 }

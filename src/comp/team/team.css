@@ -41,7 +41,7 @@
 }
 
 .selectedPerson{
-  width: 0;
+  width: 350px;
   height: 100dvh;
   position: fixed;
   display: flex;
@@ -52,8 +52,13 @@
   z-index: 99999;
   background-color: rgba(13, 18, 37, .7);
   backdrop-filter: blur(5px);
-  transition: ease .5s;
+  transition: transform 0.5s ease-in-out;
   overflow-y: auto;
+  transform: translateX(100%);
+}
+
+.active {
+  transform: translateX(0);
 }
 
 .selectedPerson .selectedPersonContainer{
@@ -67,8 +72,6 @@
   padding: 2rem;
 }
 
-
-
 .selectedPerson .selectedPersonContainer img{
   width: 70%;
   aspect-ratio: 1/1;
@@ -80,4 +83,41 @@
   font-size: 20px;
   align-self: flex-end;
   cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .allDataGrid {
+    margin-top: 15dvh;
+  }
+  .selectedPerson {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .selectedPerson {
+    width: 250px;
+  }
+  .teamMember {
+    font-size: 14px;
+  }
+  .allDataGrid .allDataGrid-container .allDataWrap .teamMember img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .allDataGrid .allDataGrid-container .allDataWrap {
+    justify-content: start;
+  }
+  .allDataGrid .allDataGrid-container .allDataWrap .teamMember {
+    width: 140px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .allDataGrid .allDataGrid-container .allDataWrap .teamMember {
+    width: 120px;
+  }
 }

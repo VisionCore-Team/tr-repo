@@ -51,8 +51,8 @@ const Team = () => {
         </div>
       </div>
       <div
-        className="selectedPerson"
-        style={{ width: selected ? "350px" : "0px" }}
+        className={`selectedPerson ${selected && 'active' }`}
+        // style={{ width: selected ? "350px" : "0px" }}
         ref={selectedPersonRef}
       >
         <div className="selectedPersonContainer">

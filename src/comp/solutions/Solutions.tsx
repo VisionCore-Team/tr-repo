@@ -36,7 +36,7 @@ export default function Solutions() {
         {/* Project Sections */}
 
         {info?.paragraphTitle && (
-          <div className="flex flex-col justify-center text-center mt-20 mx-24">
+          <div className="flex flex-col justify-center text-center lg:mx-36  mx-5 my-16 max-md:my-10">
             <h1 className="text-4xl text-gray-100 mb-7 font-bold">
               {t(`${info?.paragraphTitle}`)}
             </h1>
