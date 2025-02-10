@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 5dvh;
+  margin-top: 10dvh;
   min-height: 65vh;
 }
 
@@ -16,7 +16,7 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: start;
-  gap: 1rem;
+  gap: 7rem;
 }
 
 .allDataGrid .allDataGrid-container .allDataWrap .teamMember{
@@ -85,6 +85,12 @@
   cursor: pointer;
 }
 
+@media screen and (max-width: 1024px) {
+  .allDataGrid .allDataGrid-container .allDataWrap {
+    gap: 4rem;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .allDataGrid {
     margin-top: 15dvh;
@@ -101,6 +107,9 @@
   .teamMember {
     font-size: 14px;
   }
+  .allDataGrid .allDataGrid-container .allDataWrap {
+    gap: 2rem;
+  }
   .allDataGrid .allDataGrid-container .allDataWrap .teamMember img {
     width: 80px;
     height: 80px;
@@ -110,6 +119,7 @@
 @media screen and (max-width: 375px) {
   .allDataGrid .allDataGrid-container .allDataWrap {
     justify-content: start;
+    gap: 1rem;
   }
   .allDataGrid .allDataGrid-container .allDataWrap .teamMember {
     width: 140px;

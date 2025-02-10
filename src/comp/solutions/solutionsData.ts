@@ -27,6 +27,7 @@ import agriculture_solutionimg1 from '/project/sprey.png';
 
 export interface ProblemItem {
     title?: string;
+    boldText?: string;
     text: string;
 }
 
@@ -85,6 +86,7 @@ const solutionsData: SolutionsData[] = [
                 title: "port_solution1Title",
                 solution: [
                     {
+                        boldText: 'port_solution1SolutionTextBold',
                         text: "port_solution1SolutionText"
                     }
                 ],
@@ -103,6 +105,7 @@ const solutionsData: SolutionsData[] = [
                 title: "port_solution3Title",
                 solution: [
                     {
+                        boldText: 'port_solution3SolutionTextBold',
                         text: "port_solution3SolutionText"
                     }
                 ],
@@ -159,16 +162,6 @@ const solutionsData: SolutionsData[] = [
             },
             {
                 title: "health_solution2Title",
-                problem: [
-                    {
-                        title: "health_solution2Problem1Title",
-                        text: "health_solution2Problem1Text"
-                    },
-                    {
-                        title: "health_solution2Problem2Title",
-                        text: "health_solution2Problem2Text"
-                    },
-                ],
                 solution: [
                     {
                         title: "health_solution2Solution1Title",
@@ -328,22 +321,3 @@ const solutionsData: SolutionsData[] = [
 ];
 
 export default solutionsData;
-
-/*
-{
-    title: "",
-    titleText: "",
-    titleImage: ,
-    paragraphTitle: "",
-    paragraph: "";
-    solutionTitle: "";
-    solutions: [
-        {
-            title: "",
-            problem: "",
-            solution: "",
-            image:
-        },
-    ]
-}
-*/

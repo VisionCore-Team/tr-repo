@@ -29,6 +29,18 @@ const translations: Translation = {
     harun_location: "Ankara, Türkiye",
     harun_about:
       "Ege Üniversitesi Bilgisayar Programcılığı Bölümü'nden başarıyla mezun oldum. Aynı kurumda proaktif olarak staj yaptım. Becerilerimi yazılım sektöründe uygulamaya istekli, motivasyonu yüksek, hızlı öğrenen ve detay odaklıyım. Mükemmel iletişim becerilerine sahip güçlü bir takım oyuncusuyum. Sürekli öğrenmeye ve profesyonel büyümeye kararlıyım.",
+    hanzade_position: "Pazarlama Stajyeri",
+    hanzade_location: "İstanbul, Türkiye",
+    hanzade_about: 
+      "İstanbul Üniversitesi Psikoloji bölümü 3.sınıf öğrencisiyim. Marketing alanına olan ilgim ile kendimi bu alanda geliştirmeye ve staj yapmaya devam ediyorum. SEO, Video Editing ve Social Media Management alanlarında deneyime sahibim.",  
+    mennatulla_position: "Pazarlama Stajyeri",
+    mennatulla_location: "İstanbul, Türkiye",
+    mennatulla_about: 
+      "Dijital pazarlama, yaratıcı strateji ve marka büyümesi konusunda tutkulu bir reklam ve halkla ilişkiler öğrencisiyim. SEO, PPC, içerik pazarlaması ve sosyal medya yönetimi konularında deneyim sahibiyim. Google Ads, Facebook Ads ve WordPress ile markaların dijital alanda büyümesine katkıda bulunuyorum. A/B testleri ve veri analizleriyle kampanyaları optimize ederek en iyi sonuçları elde etmeye odaklanıyorum. Ayrıca grafik tasarım ve marka kimliği oluşturma konularında yetkinim.",  
+    yunus_position: "Yapay Zeka Stajyeri",
+    yunus_location: "İstanbul, Türkiye",
+    yunus_about: 
+      "Yapay zeka ve görüntü işleme alanlarına ilgili, Elektronik mühendisiyim. Uzmanlık alanım makine öğrenimi, derin öğrenme ve bilgisayarla görme üzerinedir. Bunun yanı sıra frontend geliştirme konularında da deneyimliyim.",  
   },
   en: {
     meetTeam: "Meet the Team",
@@ -52,6 +64,18 @@ const translations: Translation = {
     harun_location: "Ankara, Turkey",
     harun_about:
       "I'm successfully graduated from the Computer Programming Department at Ege University. Proactively completed an internship at the same institution. Eager to apply my skills in the software industry. I'm highly motivated, a quick learner, and detail-oriented and a strong team player with excellent communication skills. I'm committed to continuous learning and professional growth.",
+    hanzade_position: "Marketing Intern",
+    hanzade_location: "Istanbul, Turkey",
+    hanzade_about:
+      "I am a third-year Psychology student at Istanbul University. With my interest in the field of marketing, I continue to improve myself and gain experience through internships. I have experience in SEO, Video Editing, and Social Media Management.",
+    mennatulla_position: "Marketing Intern",
+    mennatulla_location: "Istanbul, Turkey",
+    mennatulla_about:
+      "I am a passionate Advertising and Public Relations student specializing in digital marketing, creative strategy, and brand growth. With expertise in SEO, PPC, content marketing, and social media management, I help brands thrive in the digital landscape. Proficient in Google Ads, Facebook Ads, and WordPress, I optimize campaigns using A/B testing and data analysis to maximize results. Additionally, I have strong skills in graphic design and brand identity development.",
+    yunus_position: "AI Intern",
+    yunus_location: "Istanbul, Turkey",
+    yunus_about: 
+        "I am an electronics engineer interested in artificial intelligence and image processing. I specialize in machine learning, deep learning and computer vision. I am also experienced in frontend development.",  
   },
 };
 

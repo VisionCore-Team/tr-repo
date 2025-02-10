@@ -45,11 +45,11 @@ const Operations = () => {
           </p>
         </FadeUp>
         <SlideIn delay={0.2} duration={0.8}>
-          <div className="mx-auto flex max-w-7xl flex-wrap flex-row justify-center gap-2 lg:gap-4">
+          <div className="mx-auto flex max-w-7xl flex-wrap flex-row justify-center items-start gap-2 lg:gap-4">
             {data.map((el, index) => (
               <div
                 key={index}
-                className="relative flex items-center justify-center p-2 w-full sm:w-1/2 lg:w-1/5"
+                className="relative flex items-center justify-center p-2 w-full sm:w-1/2 lg:w-[21%]"
               >
                 <div className="z-10 flex h-full w-full flex-col rounded-lg transition-all text-white bg-[#0D1225]">
                   <div className="flex-1 items-center justify-center text-center flex w-full flex-col space-y-4 p-[16px]">

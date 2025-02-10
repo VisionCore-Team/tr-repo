@@ -10,7 +10,7 @@ interface Translation {
     tr: {
         chartbar_title1: "Yeni Dünyanın Petrolü",
         chartbar_title2: "Yapay Zeka",
-        chartbar_text1: "Yapay Zeka'nın bir alt disiplini olan Bilgisayarla Görme (CV), video görüntülerindeki binlerce görsel nesne, resim veya aksiyonu tespit eden, işleyen ve anında analiz eden bir yapay zeka teknolojisidir; ancak bunu insanın yaptığı süreye kıyasla nanosaniyelerde yapar.",
+        chartbar_text1: "Yapay Zeka'nın bir alt disiplini olan Bilgisayarla Görme (CV), video görüntülerindeki binlerce görsel nesne, resim veya aksiyonu tespit eden, işleyen ve anında analiz eden bir yapay zeka teknolojisi olmasıyla birlikte bunu insanın yaptığı süreye kıyasla nanosaniyelerde yapar.",
         chartbar_text2: "Kısacası, beyin ve gözün bir arada yapabildiği her şeyi yapabilen, maaş; tatil yorgunluk gibi insani ihtiyaçları olmayan bir teknoloji olarak düşünebilirsiniz.",
         billion: 'Milyar',
         trillion: 'Trilyon',

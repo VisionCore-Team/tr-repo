@@ -3,6 +3,9 @@ import sirous from "/img/sirousbadali.jpeg";
 import veysel from "/img/veyselselimozturk.jpg";
 import malik from "/img/malikbatyr.jpg";
 import harun from "/img/harunbulbul.jpg";
+import hanzade from "/img/hanzadefener.jpeg";
+import mennatulla from "/img/mennatullaelbaz.jpeg";
+import yunus from "/img/yunuspolat.jpeg";
 
 export interface TeamData {
   id: number;
@@ -53,6 +56,30 @@ const teamData: TeamData[] = [
     position: "harun_position",
     location: "harun_location",
     about: "harun_about",
+  },
+  {
+    id: 6,
+    name: "Hanzade Fener",
+    image: hanzade,
+    position: "hanzade_position",
+    location: "hanzade_location",
+    about: "hanzade_about",
+  },
+  {
+    id: 7,
+    name: "Mennatulla El Baz",
+    image: mennatulla,
+    position: "mennatulla_position",
+    location: "mennatulla_location",
+    about: "mennatulla_about",
+  },
+  {
+    id: 8,
+    name: "Yunus Polat",
+    image: yunus,
+    position: "yunus_position",
+    location: "yunus_location",
+    about: "yunus_about",
   },
   // Daha fazla eleman ekleyin...
 ];

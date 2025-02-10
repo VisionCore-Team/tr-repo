@@ -74,17 +74,19 @@ export default function Solutions() {
                   ))}
                 </>
               )}
-              <h5 className="text-[#047857] font-semibold text-xl my-2">
-                {t("solution")}:
-              </h5>
+              {index !== 1 && (
+                <h5 className="text-[#047857] font-semibold text-xl my-2">
+                  {t("solution")}:
+                </h5>
+              )}
               {el.solution?.map((infoEl, index) => (
-                <div className="text-gray-400 mb-2" key={index}>
+                <div className="text-gray-400 my-3" key={index}>
                   {infoEl?.title && (
                     <span className="text-white font-semibold">
                       {t(`${infoEl?.title}`)}:{" "}
                     </span>
                   )}
-                  {t(`${infoEl?.text}`)}
+                  {infoEl?.boldText && (<strong>{t(`${infoEl?.boldText}`)}</strong>)} {t(`${infoEl?.text}`)}
                 </div>
               ))}
             </div>
